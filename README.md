@@ -21,6 +21,11 @@ $ python manage.py migrate
 $ python manage.py runserver 
 ```
 
+## License
+The code in this repository is licensed under version 3 of the AGPL unless otherwise noted. Please see the [LICENSE](https://github.com/ahmedaljazzar/fairuze/blob/master/LICENSE) file for details.
+
+Copyright (c) 2017 Ahmed Jazzar <me@ahmedjazzar.com>
+
 
 
 
@@ -46,3 +51,8 @@ $ python manage.py migrate
 ```shell
 $ python manage.py runserver 
 ```
+## الرخصة
+
+إن هذا النص المصدري محمي بموجب ترخيص رخصة أفيرو العمومية بإصدارها الثالث مالم يتم النص على غير ذلك بصراحة. رجاء زُر صفحة [الرخصة](https://github.com/ahmedaljazzar/fairuze/blob/master/LICENSE) للمزيد من المعلومات.‏
+
+٢٠١٧ أحمد جزار. جميع الحقوق محفوظة.‏ (c) 
