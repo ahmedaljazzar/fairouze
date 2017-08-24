@@ -1,6 +1,7 @@
+from django.db import models
 from django.conf import settings
 from django.contrib.auth.models import User
-from django.db import models
+from django.utils.translation import ugettext_lazy as _
 
 
 class BaseModel(models.Model):
@@ -27,8 +28,8 @@ class Lyric(BaseModel):
 
 class Track(BaseModel):
     TYPES = (
-        ('s', 'sound'),
-        ('v', 'video'),
+        ('s', _('sound')),
+        ('v', _('video')),
     )
     url = models.URLField()
     length = models.FloatField()
