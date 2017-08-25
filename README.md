@@ -1,4 +1,4 @@
-# Fairuze
+# Fairuze [![Build Status](https://travis-ci.org/ahmedaljazzar/fairuze.svg?branch=master)](https://travis-ci.org/ahmedaljazzar/fairuze)
 The largest database for Arabic lyrics on the web!
 
 ## Installation
