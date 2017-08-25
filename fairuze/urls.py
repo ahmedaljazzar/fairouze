@@ -19,9 +19,11 @@ from django.conf.urls import url, include
 from rest_framework import routers
 
 from song import views
+from users.views import RegisterAPIView
 
 
 # API Routers
+
 router = routers.DefaultRouter()
 router.register(r'lyrics', views.LyricViewSet)
 router.register(r'tracks', views.TrackViewSet)
@@ -34,7 +36,7 @@ router.register(r'writers', views.WriterViewSet)
 # URL Patterns
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^api-auth/',
-        include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^api-auth/', include('rest_framework.urls')),
     url(r'^api/', include(router.urls, namespace='api')),
+    url(r'^api/register/$', RegisterAPIView.as_view(), name='register'),
 ]
