@@ -4,7 +4,7 @@ import factory
 
 
 class UserFactory(factory.DjangoModelFactory):
-    username = factory.Sequence(lambda n: 'user_{}'.format(n))
+    username = factory.Sequence('user_{}'.format)
     first_name = factory.Faker('first_name')
     last_name = factory.Faker('last_name')
 
