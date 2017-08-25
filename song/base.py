@@ -18,4 +18,3 @@ class Person(BaseModel):
 
     class Meta:
         abstract = True
-
