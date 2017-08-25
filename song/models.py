@@ -3,13 +3,7 @@ from django.conf import settings
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
 
-
-class BaseModel(models.Model):
-    created = models.DateTimeField(auto_now_add=True)
-    modified = models.DateTimeField(auto_now=True)
-
-    class Meta:
-        abstract = True
+from song.base import BaseModel, Person
 
 
 class Lyric(BaseModel):
@@ -41,10 +35,10 @@ class Track(BaseModel):
 
 
 class Song(BaseModel):
-    name = models.CharField(max_length=100)
+    title = models.CharField(max_length=100)
     info = models.TextField(null=True, blank=True)
     lyrics = models.OneToOneField(Lyric)
-    track = models.OneToOneField(Track)
+    track = models.OneToOneField(Track, null=True)
     language = models.CharField(
         max_length=2,
         choices=settings.LANGUAGES,
@@ -52,31 +46,28 @@ class Song(BaseModel):
     )
 
     def __str__(self):
-        return self.name
+        return self.title
 
 
-class Artist(BaseModel):
-    name = models.CharField(max_length=50)
-    info = models.TextField(null=True, blank=True)
-    songs = models.ForeignKey(Song, related_name='artist')
-
-    def __str__(self):
-        return self.name
-
-
-class Composer(BaseModel):
-    name = models.CharField(max_length=50)
-    info = models.TextField(null=True, blank=True)
-    songs = models.ForeignKey(Song, related_name='composer')
-
-    def __str__(self):
-        return self.name
+class Artist(Person):
+    songs = models.ManyToManyField(
+        Song,
+        related_name='artists',
+        related_query_name='artist',
+    )
 
 
-class Writer(BaseModel):
-    name = models.CharField(max_length=50)
-    info = models.TextField(null=True, blank=True)
-    lyrics = models.ForeignKey(Lyric, related_name='writer')
+class Composer(Person):
+    songs = models.ManyToManyField(
+        Song,
+        related_name='composers',
+        related_query_name='composer',
+    )
 
-    def __str__(self):
-        return self.name
+
+class Writer(Person):
+    lyrics = models.ManyToManyField(
+        Lyric,
+        related_name='writers',
+        related_query_name='writer',
+    )
