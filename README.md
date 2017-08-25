@@ -3,9 +3,9 @@ The largest database for Arabic lyrics on the web!
 
 ## Installation
 ### Create DB
-```shell
-$ mysql -uroot 
-mysql> CREATE DATABASE fairuze DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+In your `mysql>` command-line interface create Fairuze DB using the following command. 
+```mysql
+CREATE DATABASE fairuze DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
 ```
 
 ### Getting Project (Ubuntu/osX)
@@ -34,9 +34,10 @@ Copyright (c) 2017 Ahmed Jazzar <me@ahmedjazzar.com>
 
 ## التنزيل
 ### تحضير قاعدة البيانات
-```shell
-$ mysql -uroot 
-mysql> CREATE DATABASE fairuze DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+ الخاصة بك، قم بإنشاء قاعدة بيانات فيروزيّ باستخدام الأمر في الأسفل.‏ `mysql>` في واجهة سطر أوامر 
+
+```mysql
+CREATE DATABASE fairuze DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
 ```
 
 ### تحضري المشروع (على أوبنتو وعلى نظام تشغيل الماك)‏
