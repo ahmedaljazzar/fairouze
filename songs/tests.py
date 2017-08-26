@@ -3,8 +3,8 @@ from django.contrib.auth.models import User
 from django.db import IntegrityError, transaction
 from django.test import TestCase
 
-from song import factories, models
-from song.base import Person, BaseModel
+from songs import factories, models
+from songs.base import Person, BaseModel
 
 
 class SongModelsTestCase(TestCase):

@@ -1,6 +1,6 @@
 from rest_framework import viewsets
 
-from song import models, serializers
+from songs import models, serializers
 
 
 class LyricViewSet(viewsets.ModelViewSet):

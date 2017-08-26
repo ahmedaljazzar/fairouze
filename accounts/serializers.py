@@ -1,18 +1,30 @@
+from django.contrib.auth import password_validation
+from django.contrib.auth.models import User
+
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
-from django.contrib.auth.models import User
 
 
 class UserSerializer(serializers.ModelSerializer):
+    password = serializers.CharField()
     email = serializers.EmailField(
         required=True,
-        validators=[UniqueValidator(queryset=User.objects.all())]
+        validators=[UniqueValidator(queryset=User.objects.all())],
     )
     username = serializers.CharField(
         max_length=20,
-        validators=[UniqueValidator(queryset=User.objects.all())]
+        validators=[UniqueValidator(queryset=User.objects.all())],
     )
-    password = serializers.CharField(min_length=8)
+
+    def validate_password(self, password):
+        """
+        Validates the password using the AUTH_PASSWORD_VALIDATORS.
+
+        :param password: The user entered passwod.
+        :return: The validated password
+        """
+        password_validation.validate_password(password, self.instance)
+        return password
 
     def create(self, validated_data):
         user = User.objects.create_user(

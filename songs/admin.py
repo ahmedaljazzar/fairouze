@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from song import models
+from songs import models
 
 
 class LyricAdmin(admin.ModelAdmin):
