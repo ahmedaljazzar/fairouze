@@ -1,7 +1,7 @@
 import factory
 from factory.fuzzy import FuzzyFloat
 
-from song import models
+from songs import models
 from users.factories import UserFactory
 
 

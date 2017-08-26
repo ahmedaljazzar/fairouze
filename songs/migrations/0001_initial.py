@@ -66,7 +66,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=100)),
                 ('info', models.TextField(blank=True, null=True)),
                 ('language', models.CharField(choices=[('ar', 'Arabic'), ('en', 'English')], default='ar', max_length=2)),
-                ('lyrics', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='song.Lyric')),
+                ('lyrics', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='songs.Lyric')),
             ],
             options={
                 'abstract': False,
@@ -95,7 +95,7 @@ class Migration(migrations.Migration):
                 ('modified', models.DateTimeField(auto_now=True)),
                 ('name', models.CharField(max_length=50)),
                 ('info', models.TextField(blank=True, null=True)),
-                ('lyrics', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='writer', to='song.Lyric')),
+                ('lyrics', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='writer', to='songs.Lyric')),
             ],
             options={
                 'abstract': False,
@@ -104,16 +104,16 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='song',
             name='track',
-            field=models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='song.Track'),
+            field=models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='songs.Track'),
         ),
         migrations.AddField(
             model_name='composer',
             name='songs',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='composer', to='song.Song'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='composer', to='songs.Song'),
         ),
         migrations.AddField(
             model_name='artist',
             name='songs',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='artist', to='song.Song'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='artist', to='songs.Song'),
         ),
     ]

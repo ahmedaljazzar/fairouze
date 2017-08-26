@@ -8,7 +8,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('song', '0002_polymorphism'),
+        ('songs', '0002_polymorphism'),
     ]
 
     operations = [
@@ -24,7 +24,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='artist',
             name='songs',
-            field=models.ManyToManyField(related_name='artists', related_query_name='artist', to='song.Song'),
+            field=models.ManyToManyField(related_name='artists', related_query_name='artist', to='songs.Song'),
         ),
         migrations.RemoveField(
             model_name='composer',
@@ -33,7 +33,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='composer',
             name='songs',
-            field=models.ManyToManyField(related_name='composers', related_query_name='composer', to='song.Song'),
+            field=models.ManyToManyField(related_name='composers', related_query_name='composer', to='songs.Song'),
         ),
         migrations.RemoveField(
             model_name='writer',
@@ -42,6 +42,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='writer',
             name='lyrics',
-            field=models.ManyToManyField(related_name='writers', related_query_name='writer', to='song.Lyric'),
+            field=models.ManyToManyField(related_name='writers', related_query_name='writer', to='songs.Lyric'),
         ),
     ]

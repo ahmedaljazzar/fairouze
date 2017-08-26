@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
 
-    'song.apps.SongConfig',
+    'songs.apps.SongConfig',
 ]
 
 MIDDLEWARE = [

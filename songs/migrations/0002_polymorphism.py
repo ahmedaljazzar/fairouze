@@ -9,13 +9,13 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('song', '0001_initial'),
+        ('songs', '0001_initial'),
     ]
 
     operations = [
         migrations.AlterField(
             model_name='song',
             name='track',
-            field=models.OneToOneField(null=True, on_delete=django.db.models.deletion.CASCADE, to='song.Track'),
+            field=models.OneToOneField(null=True, on_delete=django.db.models.deletion.CASCADE, to='songs.Track'),
         ),
     ]

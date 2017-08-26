@@ -3,7 +3,7 @@ from django.conf import settings
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
 
-from song.base import BaseModel, Person
+from songs.base import BaseModel, Person
 
 
 class Lyric(BaseModel):

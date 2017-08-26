@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from song import models
+from songs import models
 
 
 class LyricSerializer(serializers.ModelSerializer):
