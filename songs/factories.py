@@ -2,7 +2,7 @@ import factory
 from factory.fuzzy import FuzzyFloat
 
 from songs import models
-from users.factories import UserFactory
+from accounts.factories import UserFactory
 
 
 class LyricFactory(factory.DjangoModelFactory):

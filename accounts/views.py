@@ -2,8 +2,8 @@ from rest_framework import status, generics
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 
-from users.permissions import IsNotAuthenticated
-from users.serializers import UserSerializer
+from accounts.permissions import IsNotAuthenticated
+from accounts.serializers import UserSerializer
 
 
 class RegisterAPIView(generics.CreateAPIView):
