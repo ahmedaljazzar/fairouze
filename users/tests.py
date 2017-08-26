@@ -6,6 +6,7 @@ from rest_framework.authtoken.models import Token
 from rest_framework.test import APITestCase
 
 from users import views, factories
+from users.permissions import IsNotAuthenticated
 
 
 class AccountsTest(APITestCase):
@@ -21,18 +22,34 @@ class AccountsTest(APITestCase):
         # URL for creating an account.
         self.url = reverse('register')
 
+        # Be more adaptive to changes
+        self.set_test_authentication()
+
+    def set_test_authentication(self):
+        """
+        This method is used to reduce the code fragility. Just in
+        case we want to allow authenticated users to create a new
+        user, the test suit must adapt to this change.
+
+        This must be Ok since we are checking for view permissions in
+        `test_authenticated_user_register` test.
+        """
+        view_permissions = views.RegisterAPIView.permission_classes
+        if IsNotAuthenticated in view_permissions:
+            self.client.force_authenticate(user=None)
+        else:
+            self.client.force_authenticate(user=self.test_user)
+
     def test_create_user_successful(self):
         """
         Ensure we can create a new user and a valid token is created
         with it.
         """
-        self.client.force_authenticate(user=None)
         data = {
             'username': 'test',
             'email': 'test@example.com',
             'password': 'test_password'
         }
-
         resp = self.client.post(self.url, data, format='json')
 
         # We want to make sure we get 201 created code,
@@ -56,8 +73,12 @@ class AccountsTest(APITestCase):
     def test_authenticated_user_register(self):
         user = User.objects.get(username=self.pre_data['username'])
         self.client.force_authenticate(user=user)
-
-        resp = self.client.post(self.url, self.pre_data, format='json')
+        data = {
+            'username': 'test',
+            'email': 'test@example.com',
+            'password': 'test_password'
+        }
+        resp = self.client.post(self.url, data, format='json')
 
         # Make an authenticated request to the view...
         self.assertTrue(user.is_authenticated)

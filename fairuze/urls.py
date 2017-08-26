@@ -19,6 +19,7 @@ from django.contrib import admin
 from django.conf.urls import url, include
 
 from rest_framework import routers
+from rest_framework.documentation import include_docs_urls
 
 from song import views
 from users.views import RegisterAPIView
@@ -38,8 +39,12 @@ router.register(r'writers', views.WriterViewSet)
 urlpatterns = [
 
     url(r'^admin/', admin.site.urls),
+
+    # API URLs
     url(r'^api-auth/', include('rest_framework.urls')),
     url(r'^api/', include(router.urls, namespace='api')),
     url(r'^api/register/$', RegisterAPIView.as_view(), name='register'),
 
+    # Documentations URLs
+    url(r'^docs/api/', include_docs_urls(title='Fairuze API Guide')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
