@@ -1,92 +1,40 @@
-from rest_framework import status, generics
-from rest_framework.authtoken.models import Token
-from rest_framework.response import Response
+from django.contrib.auth.models import User
+from rest_framework import mixins
+from rest_framework.exceptions import PermissionDenied
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.viewsets import GenericViewSet
 
 from accounts.permissions import IsNotAuthenticated
 from accounts.serializers import UserSerializer
 
 
-class RegisterAPIView(generics.CreateAPIView):
-    """
-    **Use Cases**
-
-        Basically, creates a new user.
-
-    **Example Requests**
-
-        POST /api/register
-
-    **Request Body**
-
-        The request body should be a "application/json" encoded object,
-        containing the following items:
-
-        username
-            A uniques username for the new user.
-        email
-            A uniques email for the new user.
-        password
-            No less than 8 characters.
-
-    **Response Values**
-
-        If the user is logged in, an HTTP 403 "Forbidden" response
-        is returned.
-
-        If the user is not logged in and the provided data is not
-        valid, an HTTP 400 "Bad Request" response is returned with
-        a json list of the error messages.
-
-        Otherwise, an HTTP 201 "Created" response is returned. The
-        response contains the following value:
-
-        username:
-            The username associated with the created account.
-        email:
-            The email associated with the created account.
-        token:
-            The token generated specifically for the created account.
-
-    **Example Response**
-
-            {
-                "username": "newuser",
-                "email": "newuser@example.com",
-                "token": "notTopS3cre7",
-            }
-
-    """
-    permission_classes = (IsNotAuthenticated,)
+class AccountsViewSet(mixins.CreateModelMixin,
+                      mixins.RetrieveModelMixin,
+                      GenericViewSet):
+    queryset = User.objects.all()
     serializer_class = UserSerializer
+    lookup_field = 'username'
 
-    def post(self, request, *args, **kwargs):
-        """
-        Will accept a request from an unauthenticated user that
-        contains an email, a password, and a username and will create
-        a new account and an auth token for the user.
+    def create(self, request, *args, **kwargs):
+        response = super(AccountsViewSet, self).create(
+            request, *args, **kwargs)
 
-        :param request:
-        :param args:
-        :param kwargs:
-        :return: - HTTP_201_CREATED if the account created successfully.
-                 - HTTP_403_FORBIDDEN if the user is authenticated.
-                 - HTTP_400_BAD_REQUEST if the user passed non-sense
-                   data.
-        """
-        serializer = self.serializer_class(data=request.data)
-        if serializer.is_valid():
-            user = serializer.save()
+        response.data.pop('password')
+        return response
 
-            # Creating a token for this new user.
-            token = Token.objects.create(user=user)
-            user_data = {
-                'username': serializer.data['username'],
-                'email': serializer.data['email'],
-                'token': token.key,
-            }
+    def retrieve(self, request, *args, **kwargs):
+        if self.request.user.username != kwargs['username'] \
+              and not self.request.user.is_staff:
+            raise PermissionDenied()
 
-            return Response(user_data, status=status.HTTP_201_CREATED)
+        response = super(AccountsViewSet, self).retrieve(
+            request, *args, **kwargs)
 
-        # Inform the user about the mistakes he made.
-        errors = serializer.errors
-        return Response(errors, status=status.HTTP_400_BAD_REQUEST)
+        response.data.pop('password')
+        return response
+
+    def get_permissions(self):
+        if self.request.method == 'POST':
+            return [IsNotAuthenticated(), ]
+
+        return [IsAuthenticated(), ]

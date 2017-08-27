@@ -21,18 +21,21 @@ from django.conf.urls import url, include
 from rest_framework import routers
 from rest_framework.documentation import include_docs_urls
 
-from songs import views
-from accounts.views import RegisterAPIView
+from songs import views as songs_views
+from accounts import views as accounts_views
 
 
 # API Routers
 router = routers.DefaultRouter()
-router.register(r'lyrics', views.LyricViewSet)
-router.register(r'tracks', views.TrackViewSet)
-router.register(r'songs', views.SongViewSet)
-router.register(r'artists', views.ArtistViewSet)
-router.register(r'composers', views.ComposerViewSet)
-router.register(r'writers', views.WriterViewSet)
+router.register(r'lyrics', songs_views.LyricViewSet)
+router.register(r'tracks', songs_views.TrackViewSet)
+router.register(r'songs', songs_views.SongViewSet)
+router.register(r'artists', songs_views.ArtistViewSet)
+router.register(r'composers', songs_views.ComposerViewSet)
+router.register(r'writers', songs_views.WriterViewSet)
+
+router.register(r'accounts', accounts_views.AccountsViewSet,
+                base_name='accounts')
 
 
 # URL Patterns
@@ -41,9 +44,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     # API URLs
-    url(r'^api-auth/', include('rest_framework.urls')),
-    url(r'^api/', include(router.urls, namespace='api')),
-    url(r'^api/register/$', RegisterAPIView.as_view(), name='register'),
+    url(r'^api/', include('rest_framework.urls')),
+    url(r'^api/', include(router.urls)),
 
     # Documentations URLs
     url(r'^docs/api/', include_docs_urls(title='Fairuze API Guide')),

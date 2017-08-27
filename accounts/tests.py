@@ -20,25 +20,140 @@ class AccountsTest(APITestCase):
         self.test_user = factories.UserFactory.create(**self.pre_data)
 
         # URL for creating an account.
-        self.url = reverse('register')
+        self.url = reverse('accounts-list')
+        self.client.force_authenticate(user=None)
 
-        # Be more adaptive to changes
-        self.set_test_authentication()
-
-    def set_test_authentication(self):
+    def test_not_authenticated_user_get_not_permitted(self):
         """
-        This method is used to reduce the code fragility. Just in
-        case we want to allow authenticated users to create a new
-        user, the test suit must adapt to this change.
-
-        This must be Ok since we are checking for view permissions in
-        `test_authenticated_user_register` test.
+        Ensure we can't get a user data if we aren't authenticated.
         """
-        view_permissions = views.RegisterAPIView.permission_classes
-        if IsNotAuthenticated in view_permissions:
-            self.client.force_authenticate(user=None)
-        else:
-            self.client.force_authenticate(user=self.test_user)
+        resp = self.client.get(self.url, {'id': 1}, format='json')
+
+        # We want to make sure that request is forbidden,
+        self.assertEqual(resp.status_code, status.HTTP_403_FORBIDDEN)
+        # And that we still have one user in the database.
+        self.assertEqual(User.objects.count(), 1)
+
+    def test_same_user_get(self):
+        """
+        Test user getting proper data when querying on User.
+        """
+        self.client.force_authenticate(user=self.test_user)
+        data = {'username': self.test_user.username}
+        url = reverse('accounts-detail', kwargs=data)
+
+        resp = self.client.get(url, data, format='json')
+
+        # We want to make sure that request has gone successful.
+        self.assertEqual(resp.status_code, status.HTTP_200_OK)
+        # And this doesn't change the database.
+        self.assertEqual(User.objects.count(), 1)
+
+        # Check returned data
+        self.assertContains(resp, 'username')
+        self.assertContains(resp, 'email')
+        self.assertContains(resp, 'token')
+
+        self.assertNotIn('password', resp.data)
+
+    def test_superuser_get(self):
+        """
+        Test user getting proper data when querying on User.
+        """
+        superuser = User.objects.create_superuser(
+            'superuser',
+            email='superuser@super.sup',
+            password='superuser',
+        )
+        self.client.force_authenticate(user=superuser)
+        data = {'username': self.test_user.username}
+        url = reverse('accounts-detail', kwargs=data)
+
+        resp = self.client.get(url, data, format='json')
+
+        # We want to make sure that request has gone successful.
+        self.assertEqual(resp.status_code, status.HTTP_200_OK)
+        # And this doesn't change the database.
+        self.assertEqual(User.objects.count(), 2)
+
+        # Check returned data
+        self.assertContains(resp, 'username')
+        self.assertContains(resp, 'email')
+        self.assertContains(resp, 'token')
+
+        self.assertNotIn('password', resp.data)
+
+    def test_staff_user_get(self):
+        """
+        Test user getting proper data when querying on User.
+        """
+        staff_user = User.objects.create_user(
+            'staff',
+            email='staff@super.sup',
+            password='staff',
+        )
+        staff_user.is_staff = True
+        staff_user.save()
+
+        self.client.force_authenticate(user=staff_user)
+        data = {'username': self.test_user.username}
+        url = reverse('accounts-detail', kwargs=data)
+
+        resp = self.client.get(url, data, format='json')
+
+        # We want to make sure that request has gone successful.
+        self.assertEqual(resp.status_code, status.HTTP_200_OK)
+        # And this doesn't change the database.
+        self.assertEqual(User.objects.count(), 2)
+
+        # Check returned data
+        self.assertContains(resp, 'username')
+        self.assertContains(resp, 'email')
+        self.assertContains(resp, 'token')
+
+        self.assertNotIn('password', resp.data)
+
+    def test_different_user_get(self):
+        """
+        Test user getting proper data when querying on User.
+        """
+        self.client.force_authenticate(user=self.test_user)
+        data = {'username': 'some_different_user'}
+        url = reverse('accounts-detail', kwargs=data)
+
+        resp = self.client.get(url, data, format='json')
+
+        # We want to make sure that request is forbidden.
+        self.assertEqual(resp.status_code, status.HTTP_403_FORBIDDEN)
+
+        # And it doesn't change the database.
+        self.assertEqual(User.objects.count(), 1)
+
+        # And no data returned
+        self.assertIn('detail', resp.data)
+
+        self.assertNotIn('username', resp.data)
+        self.assertNotIn('token', resp.data)
+        self.assertNotIn('email', resp.data)
+        self.assertNotIn('password', resp.data)
+
+    def test_authenticated_user_post_not_permitted(self):
+        """
+        Ensure we can create a new user and a valid token is created
+        with it.
+        """
+        self.client.force_authenticate(user=self.test_user)
+        data = {
+            'username': 'test',
+            'email': 'test@example.com',
+            'password': 'test_password'
+        }
+        resp = self.client.post(self.url, data, format='json')
+
+        # We want to make sure that request is forbidden,
+        self.assertEqual(resp.status_code, status.HTTP_403_FORBIDDEN)
+        # And that we still have one user in the database.
+        self.assertEqual(User.objects.count(), 1)
 
     def test_create_user_successful(self):
         """

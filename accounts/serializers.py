@@ -2,11 +2,11 @@ from django.contrib.auth import password_validation
 from django.contrib.auth.models import User
 
 from rest_framework import serializers
+from rest_framework.authtoken.models import Token
 from rest_framework.validators import UniqueValidator
 
 
 class UserSerializer(serializers.ModelSerializer):
-    password = serializers.CharField()
     email = serializers.EmailField(
         required=True,
         validators=[UniqueValidator(queryset=User.objects.all())],
@@ -15,6 +15,7 @@ class UserSerializer(serializers.ModelSerializer):
         max_length=20,
         validators=[UniqueValidator(queryset=User.objects.all())],
     )
+    token = serializers.SerializerMethodField()
 
     def validate_password(self, password):
         """
@@ -30,11 +31,28 @@ class UserSerializer(serializers.ModelSerializer):
         user = User.objects.create_user(
             validated_data['username'],
             validated_data['email'],
-            validated_data['password']
+            validated_data['password'],
         )
 
+        # Creating a token for this new user.
+        Token.objects.create(user=user)
         return user
+
+    def get_token(self, obj):
+        try:
+            return Token.objects.get(user=obj).key
+        except Token.DoesNotExist:
+            pass
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'email', 'password')
+        fields = (
+            'first_name',
+            'last_name',
+            'username',
+            'email',
+            'password',
+            'token',
+            'date_joined',
+            'last_login',
+        )
