@@ -1,0 +1,621 @@
+﻿{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" class="wide wow-animation">
+<head>
+	<!-- Site Title -->
+	<title>Home</title>
+	<meta name="format-detection" content="telephone=no"/>
+	<meta name="viewport"
+		  content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+
+	<!-- Stylesheets -->
+	<link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+	<link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+	<!--[if lt IE 10]>
+	<script src="{% static 'js/html5shiv.min.js' %}"></script>
+	<![endif]-->
+</head>
+<body>
+<!-- The Main Wrapper -->
+<div class="page">
+
+	<!--For older internet explorer-->
+	<div class="old-ie"
+		 style='background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;'>
+		<a href="http://windows.microsoft.com/en-US/internet-explorer/..">
+			<img src="{% static 'images/ie8-panel/warning_bar_0000_us.jpg' %}" height="42" width="820"
+				 alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."/>
+		</a>
+	</div>
+	<!--END block for older internet explorer-->
+
+	<!--========================================================
+							  HEADER
+	=========================================================-->
+	<header class="page-header bg-texture-1 well-1">
+		<!-- RD Navbar -->
+		<div class="rd-navbar-wrap">
+			<nav class="rd-navbar" data-rd-navbar-lg="rd-navbar-static">
+				<div class="rd-navbar-inner">
+					<!-- RD Navbar Panel -->
+					<div class="rd-navbar-panel">
+
+						<!-- RD Navbar Toggle -->
+						<button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar"><span></span></button>
+						<!-- END RD Navbar Toggle -->
+
+						<!-- RD Navbar Brand -->
+						<a href="{% url 'home' %}" class="rd-navbar-brand box">
+							<div class="box__left">
+									<span class="brand-logo icon icon-sm icon-primary">
+										 <img src="{% static 'images/page1_icon01.png' %}" width="35" height="25" alt="">
+									</span>
+							</div>
+							<div class="box__body">
+								<div class="brand-name">Fairu<span class="text-color-primary">ze.</span></div>
+								<div class="brand-slogan">Radio station</div>
+							</div>
+						</a>
+						<!-- END RD Navbar Brand -->
+					</div>
+					<!-- END RD Navbar Panel -->
+
+					<div class="rd-navbar-nav-wrap">
+
+						<!-- RD Navbar Nav -->
+						<ul class="rd-navbar-nav">
+							<li>
+								<a href="{% url 'home' %}">Home</a>
+							</li>
+							<li>
+								<a href="{% url 'djs' %}">DJs & Shows</a>
+
+								<!-- RD Navbar Dropdown -->
+								<ul class="rd-navbar-dropdown">
+									<li>
+										<a href="#">DJ Suzana</a>
+									</li>
+									<li>
+										<a href="#">DJ Smith</a>
+
+									</li>
+									<li>
+										<a href="#">DJ Amarok</a>
+										<ul class="rd-navbar-dropdown">
+											<li>
+												<a href='#'>Morning Show</a>
+											</li>
+											<li>
+												<a href='#'>Evening Shows</a>
+											</li>
+											<li>
+												<a href='#'>Night Show</a>
+											</li>
+											<li>
+												<a href='#'>Weekend Show</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+								<!-- END RD Navbar Dropdown -->
+
+							</li>
+							<li class="active">
+								<a href="{% url 'events' %}">Events</a>
+							</li>
+							<li>
+								<a href="{% url 'news' %}">News & Info</a>
+								<!-- RD Navbar Megamenu -->
+								<ul class="rd-navbar-megamenu">
+									<li>
+										<img class="border-radius" src="{% static 'images/page1_img10.jpg' %}" width="270" height="270" alt="">
+										<h6 class="text-color-primary">Music News</h6>
+										<p><a href="#">Adele UK Tour<br>
+											is Happening!</a></p>
+									</li>
+									<li>
+										<img class="border-radius" src="{% static 'images/page1_img11.jpg' %}" width="270" height="270" alt="">
+										<h6 class="text-color-primary">Music News</h6>
+										<p><a href="#">Coldplay Turn Chimps<br>
+											in Their New Video.</a>
+										</p>
+									</li>
+								</ul>
+								<!-- END RD Navbar Megamenu -->
+							</li>
+							<li>
+								<a href="{% url 'schedule' %}">Schedule</a>
+							</li>
+							<li>
+								<a href="{% url 'contacts' %}">Contacts</a>
+							</li>
+						</ul>
+						<!-- END RD Navbar Nav -->
+					</div>
+				</div>
+			</nav>
+		</div>
+		<!-- END RD Navbar -->
+
+		<div class="container relative z-index-2">
+			<div class="wrapper-1 text-center text-sm-left">
+				<div class="row row-no-gutter row-xs-middle row-sm-reverse">
+					<div class="col-sm-7 col-lg-6">
+						<div class="row row-sm-no-gutter row-sm-reverse flow-offset-5">
+							<div class="col-sm-5 sm-bg-color-grayscale-darken-variant-1 text-center">
+								<div class="inset-7">
+									<a href="#" class="btn_play item">
+										Listen<br>Live
+								<span>
+									<img src="{% static 'images/page1_icon02.png' %}" width="30" height="30" alt="">
+								</span>
+									</a>
+								</div>
+							</div>
+							<div class="col-sm-7 sm-bg-color-grayscale-darken flex flex-middle flex-center-to-sm offset-9">
+								<div class="box inset-5">
+									<div class="box__left">
+										<img class="icon-type-2" src="{% static 'images/page1_img01.jpg' %}" width="75" height="72" alt="">
+									</div>
+									<div class="box__body text-left">
+										<h6>On Air</h6>
+										<a href="#" class="heading-6 text-color-contrast">DJ Suzana</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-5 col-lg-6">
+						<div class="inset-4">
+							<h6> Now Playing on <a href="#">Fairuze.</a></h6>
+							<a href="#" class="heading-6 text-color-contrast inline-block">Johnny Cash - Cry, Cry, Cry</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</header>
+	<!--========================================================
+							  CONTENT
+	=========================================================-->
+	<main class="page-content text-center text-md-left">
+
+		<section>
+			<!--Swiper -->
+			<div class="swiper-container swiper-slider" data-loop="true" data-autoplay="false">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide rd-parallax">
+						<div class="rd-parallax-layer" data-speed="0.6" data-type="media"
+							 data-url="{% static 'images/page3_parallax01.jpg' %}"></div>
+						<div class="rd-parallax-layer" data-speed="0" data-type="html"
+							 data-fade="false">
+							<div class="swiper-slide-caption">
+								<div class="container well-9 event-post">
+									<a href="#" class="event-post__info box box-skin-1 inline">
+										<div class="box__left heading-2">21/12</div>
+										<div class="post__data box__body">
+											<h5>
+												Moein Live In Concert
+											</h5>
+											<address class="small">
+												9863 - 9867 Mill Road, Cambridge, MG09 99HT.
+											</address>
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide rd-parallax">
+						<div class="rd-parallax-layer" data-speed="0.6" data-type="media"
+							 data-url="{% static 'images/page3_parallax02.jpg' %}"></div>
+						<div class="rd-parallax-layer" data-speed="0" data-type="html"
+							 data-fade="false">
+							<div class="swiper-slide-caption">
+								<div class="container well-9 event-post">
+									<a href="#" class="event-post__info box box-skin-1 inline">
+										<div class="box__left heading-2">21/12</div>
+										<div class="post__data box__body">
+											<h5>
+												Radio Javan New Year's Eve Gala 2016
+											</h5>
+											<address class="small">
+												8901 Marmora Road, Glasgow, D04 89GR.
+											</address>
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide rd-parallax">
+						<div class="rd-parallax-layer" data-speed="0.6" data-type="media"
+							 data-url="{% static 'images/page3_parallax03.jpg' %}"></div>
+						<div class="rd-parallax-layer" data-speed="0" data-type="html"
+							 data-fade="false">
+							<div class="swiper-slide-caption">
+								<div class="container well-9 event-post">
+									<a href="#" class="event-post__info box box-skin-1 inline">
+										<div class="box__left heading-2">21/12</div>
+										<div class="post__data box__body">
+											<h5>
+												Las Vegas Persian Concert
+											</h5>
+											<address class="small">
+												9870 St Vincent Place, Glasgow, DC 45 Fr 45.
+											</address>
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Swiper Navigation -->
+				<div class="swiper-button-prev"><span class="arrows-ico arrows-previous11"></span></div>
+				<div class="swiper-button-next"><span class="arrows-ico arrows-next15"></span></div>
+			</div>
+			<!-- END Swiper -->
+		</section>
+
+		<section class="well-10">
+			<div class="container">
+				<h2 class="text-color-primary">Upcoming Events</h2>
+				<div class="row row-no-gutter">
+					<!-- Owl Carousel -->
+					<div class="owl-carousel"
+						 data-autoplay="true"
+						 data-autoplay-timeout="7000"
+						 data-smart-speed="2000"
+						 data-loop="true"
+						 data-nav="false"
+						 data-dots="false"
+						 data-items="1"
+						 data-sm-items="2"
+						 data-md-items="3"
+						 data-stage-padding="40"
+						 data-md-stage-padding="0"
+						 data-margin="27">
+						<div class="owl-item event-post-3">
+							<img class="border-radius" src="{% static 'images/page3_img01.jpg' %}" width="370" height="370" alt="">
+							<div class="event-post-3_info wow fadeInUp" data-wow-delay="0.3s">
+								<h6 class="text-color-primary">Dietikon, Switzerland</h6>
+								<div class="small">December 18, 2016</div>
+								<h5>Mansour Live In Concert</h5>
+								<div class="contact-info xs-visible">
+									<div class="box">
+										<div class="box__left"><span class="material-icons-location_on"></span></div>
+										<div class="box__body"><a href="#">Fondli Str. 15</a></div>
+									</div><br/>
+									<div class="box">
+										<div class="box__left"><span class="material-icons-phone"></span></div>
+										<div class="box__body"><a href="#">+1 800 559 6580</a></div>
+									</div><br/>
+									<div class="box">
+										<div class="box__left"><span class="material-icons-access_time"></span></div>
+										<div class="box__body"><a href="#">8:30 pm</a></div>
+									</div><br/>
+									<div class="box">
+										<div class="box__left"><span class="material-icons-info_outline"></span></div>
+										<div class="box__body"><a href="#">Concerte Bozorge Christmas</a></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="owl-item event-post-3">
+							<img class="border-radius" src="{% static 'images/page3_img02.jpg' %}" width="370" height="370" alt="">
+							<div class="event-post-3_info wow fadeInUp" data-wow-delay="0.5s">
+								<h6 class="text-color-primary">Istanbul, Turkey</h6>
+								<div class="small">December 21, 2016</div>
+								<h5>Matik</h5>
+								<div class="contact-info xs-visible">
+									<div class="box">
+										<div class="box__left"><span class="material-icons-location_on"></span></div>
+										<div class="box__body"><a href="#">Nispetiye Cd Calikusu Iris sk.</a></div>
+									</div><br/>
+									<div class="box">
+										<div class="box__left"><span class="material-icons-phone"></span></div>
+										<div class="box__body"><a href="#">+1 800 559 6580</a></div>
+									</div><br/>
+									<div class="box">
+										<div class="box__left"><span class="material-icons-access_time"></span></div>
+										<div class="box__body"><a href="#">8:30 pm</a></div>
+									</div><br/>
+									<div class="box">
+										<div class="box__left"><span class="material-icons-info_outline"></span></div>
+										<div class="box__body"><a href="#">DJ Bliss</a></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="owl-item event-post-3">
+							<img class="border-radius" src="{% static 'images/page3_img03.jpg' %}" width="369" height="370" alt="">
+							<div class="event-post-3_info wow fadeInUp" data-wow-delay="0.7s">
+								<h6 class="text-color-primary">New York City, NY</h6>
+								<div class="small">December 22, 2016</div>
+								<h5>Moein Live In Concert</h5>
+								<div class="contact-info xs-visible">
+									<div class="box">
+										<div class="box__left"><span class="material-icons-location_on"></span></div>
+										<div class="box__body"><a href="#">Ave Bayside Ny 11364</a></div>
+									</div><br/>
+									<div class="box">
+										<div class="box__left"><span class="material-icons-phone"></span></div>
+										<div class="box__body"><a href="#">+1 800 559 6580</a></div>
+									</div><br/>
+									<div class="box">
+										<div class="box__left"><span class="material-icons-access_time"></span></div>
+										<div class="box__body"><a href="#">9:00 pm</a></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- END Owl Carousel -->
+				</div>
+				<div class="row row-no-gutter offset-8">
+					<!-- Owl Carousel -->
+					<div class="owl-carousel"
+						 data-autoplay="true"
+						 data-autoplay-timeout="10000"
+						 data-smart-speed="2000"
+						 data-loop="true"
+						 data-nav="false"
+						 data-dots="false"
+						 data-items="1"
+						 data-sm-items="2"
+						 data-md-items="3"
+						 data-stage-padding="40"
+						 data-md-stage-padding="0"
+						 data-margin="27">
+						<div class="owl-item event-post-3">
+							<img class="border-radius" src="{% static 'images/page3_img04.jpg' %}" width="370" height="370" alt="">
+							<div class="event-post-3_info wow fadeInUp" data-wow-delay="0.3s">
+								<h6 class="text-color-primary">Las Vegas, NV</h6>
+								<div class="small">December 24, 2016</div>
+								<h5>Las Vegas Christmas Party at TAO</h5>
+								<div class="contact-info xs-visible">
+									<div class="box">
+										<div class="box__left"><span class="material-icons-location_on"></span></div>
+										<div class="box__body"><a href="#">Venetian Hotel and Casino</a></div>
+									</div><br/>
+									<div class="box">
+										<div class="box__left"><span class="material-icons-phone"></span></div>
+										<div class="box__body"><a href="#">+1 800 559 6580</a></div>
+									</div><br/>
+									<div class="box">
+										<div class="box__left"><span class="material-icons-access_time"></span></div>
+										<div class="box__body"><a href="#">8:30 pm</a></div>
+									</div><br/>
+									<div class="box">
+										<div class="box__left"><span class="material-icons-info_outline"></span></div>
+										<div class="box__body"><a href="#">Bobby K - Dj Alex - Eddie Makabi</a></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="owl-item event-post-3">
+							<img class="border-radius" src="{% static 'images/page3_img05.jpg' %}" width="370" height="370" alt="">
+							<div class="event-post-3_info wow fadeInUp" data-wow-delay="0.5s">
+								<h6 class="text-color-primary">Washington, DC </h6>
+								<div class="small">December 27, 2016</div>
+								<h5>Ebi Live In Concert</h5>
+								<div class="contact-info xs-visible">
+									<div class="box">
+										<div class="box__left"><span class="material-icons-location_on"></span></div>
+										<div class="box__body"><a href="#">Warner Theatre</a></div>
+									</div><br/>
+									<div class="box">
+										<div class="box__left"><span class="material-icons-phone"></span></div>
+										<div class="box__body"><a href="#">+1 800 559 6580</a></div>
+									</div><br/>
+									<div class="box">
+										<div class="box__left"><span class="material-icons-access_time"></span></div>
+										<div class="box__body"><a href="#">8:30 pm</a></div>
+									</div><br/>
+									<div class="box">
+										<div class="box__left"><span class="material-icons-info_outline"></span></div>
+										<div class="box__body line-height-variant-3"><a href="#">The legend returns for a Spectacular Performance!</a></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="owl-item event-post-3">
+							<img class="border-radius" src="{% static 'images/page3_img06.jpg' %}" width="369" height="370" alt="">
+							<div class="event-post-3_info wow fadeInUp" data-wow-delay="0.7s">
+								<h6 class="text-color-primary">Las Vegas, NV</h6>
+								<div class="small">December 28, 2016</div>
+								<h5>Las Vegas Christmas Party at DRAI'S</h5>
+								<div class="contact-info xs-visible">
+									<div class="box">
+										<div class="box__left"><span class="material-icons-location_on"></span></div>
+										<div class="box__body"><a href="#">Cromwell Hotel and Casino</a></div>
+									</div><br/>
+									<div class="box">
+										<div class="box__left"><span class="material-icons-phone"></span></div>
+										<div class="box__body"><a href="#">+1 800 559 6580</a></div>
+									</div><br/>
+									<div class="box">
+										<div class="box__left"><span class="material-icons-access_time"></span></div>
+										<div class="box__body"><a href="#">8:30 pm</a></div>
+									</div><br/>
+									<div class="box">
+										<div class="box__left"><span class="material-icons-info_outline"></span></div>
+										<div class="box__body"><a href="#">Bobby K - Dj Alex - Eddie Makabi</a></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- END Owl Carousel -->
+				</div>
+				<div class="row row-no-gutter offset-8">
+					<!-- Owl Carousel -->
+					<div class="owl-carousel"
+						 data-autoplay="true"
+						 data-autoplay-timeout="15000"
+						 data-smart-speed="2000"
+						 data-loop="true"
+						 data-nav="false"
+						 data-dots="false"
+						 data-items="1"
+						 data-sm-items="2"
+						 data-md-items="3"
+						 data-stage-padding="40"
+						 data-md-stage-padding="0"
+						 data-margin="27">
+						<div class="owl-item event-post-3">
+							<img class="border-radius" src="{% static 'images/page3_img07.jpg' %}" width="370" height="370" alt="">
+							<div class="event-post-3_info wow fadeInUp" data-wow-delay="0.3s">
+								<h6 class="text-color-primary">Vancouver, Canada</h6>
+								<div class="small">December 29, 2016</div>
+								<h5>Tehranto Party</h5>
+								<div class="contact-info xs-visible">
+									<div class="box">
+										<div class="box__left"><span class="material-icons-location_on"></span></div>
+										<div class="box__body"><a href="#">958 Granville St</a></div>
+									</div><br/>
+									<div class="box">
+										<div class="box__left"><span class="material-icons-phone"></span></div>
+										<div class="box__body"><a href="#">+1 800 559 6580</a></div>
+									</div><br/>
+									<div class="box">
+										<div class="box__left"><span class="material-icons-access_time"></span></div>
+										<div class="box__body"><a href="#">8:30 pm</a></div>
+									</div><br/>
+									<div class="box">
+										<div class="box__left"><span class="material-icons-info_outline"></span></div>
+										<div class="box__body line-height-variant-3"><a href="#">Empire Universal is proud to bring you inside THE most upscale and high end venue in downtown Vancouver</a></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="owl-item event-post-3">
+							<img class="border-radius" src="{% static 'images/page3_img08.jpg' %}" width="370" height="370" alt="">
+							<div class="event-post-3_info wow fadeInUp" data-wow-delay="0.5s">
+								<h6 class="text-color-primary">Las Vegas, NV</h6>
+								<div class="small">December 30, 2016</div>
+								<h5>Las Vegas Christmas Party at MARQUEE</h5>
+								<div class="contact-info xs-visible">
+									<div class="box">
+										<div class="box__left"><span class="material-icons-location_on"></span></div>
+										<div class="box__body"><a href="#">The Cosmopolitan of Las Vegas</a></div>
+									</div><br/>
+									<div class="box">
+										<div class="box__left"><span class="material-icons-phone"></span></div>
+										<div class="box__body"><a href="#">+1 800 559 6580</a></div>
+									</div><br/>
+									<div class="box">
+										<div class="box__left"><span class="material-icons-access_time"></span></div>
+										<div class="box__body"><a href="#">8:30 pm</a></div>
+									</div><br/>
+									<div class="box">
+										<div class="box__left"><span class="material-icons-info_outline"></span></div>
+										<div class="box__body"><a href="#">Dj Mohsen - Deejay Al - Dj Taba</a></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="owl-item event-post-3">
+							<img class="border-radius" src="{% static 'images/page3_img09.jpg' %}" width="369" height="370" alt="">
+							<div class="event-post-3_info wow fadeInUp" data-wow-delay="0.7s">
+								<h6 class="text-color-primary">Arlington, VA</h6>
+								<div class="small">December 31, 2016</div>
+								<h5>Fairu<span class="text-color-primary">ze.</span> New Year's Eve Gala 2017</h5>
+								<div class="contact-info xs-visible">
+									<div class="box">
+										<div class="box__left"><span class="material-icons-location_on"></span></div>
+										<div class="box__body"><a href="#">1800 Jefferson Davis Hwy</a></div>
+									</div><br/>
+									<div class="box">
+										<div class="box__left"><span class="material-icons-phone"></span></div>
+										<div class="box__body"><a href="#">+1 800 559 6580</a></div>
+									</div><br/>
+									<div class="box">
+										<div class="box__left"><span class="material-icons-access_time"></span></div>
+										<div class="box__body"><a href="#">8:30 pm</a></div>
+									</div><br/>
+									<div class="box">
+										<div class="box__left"><span class="material-icons-info_outline"></span></div>
+										<div class="box__body"><a href="#">Ladies 18+ Gentlemen 21+</a></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- END Owl Carousel -->
+				</div>
+			</div>
+		</section>
+
+
+
+	</main>
+	<!--========================================================
+                              FOOTER
+    ==========================================================-->
+	<footer class="page-footer text-center text-lg-left">
+		<section class="bg-texture-2 well-5">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4">
+
+						<!-- Brand -->
+						<a href="{% url 'home' %}" class="rd-navbar-brand box">
+							<div class="box__left">
+									<span class="brand-logo icon icon-sm icon-primary">
+										 <img src="{% static 'images/page1_icon01.png' %}" width="35" height="25" alt="">
+									</span>
+							</div>
+							<div class="box__body">
+								<div class="brand-name">Fairu<span class="text-color-primary">ze.</span></div>
+								<div class="brand-slogan">Radio station</div>
+							</div>
+						</a>
+						<!-- END Brand -->
+
+					</div>
+					<div class="col-lg-preffix-1 col-lg-4">
+						<address class="inset-9">
+							<a href="#" class="box">
+								<div class="box__left">
+									<img src="{% static 'images/page1_icon06.png' %}" width="31" height="38" alt="">
+								</div>
+								<div class="box__body text-left">
+									28 Jackson Blvd Ste 1020<br>
+									Chicago, IL 60604-2340
+								</div>
+							</a>
+						</address>
+					</div>
+					<div class="col-lg-3">
+						<p class="copyright">
+							<span class="text-color-primary">Fairuze. </span>&copy; <span id="copyright-year"></span> |
+							<a href='{% url 'policy' %}'>Privacy Policy</a>
+							<!-- FOOTER_LINK -->
+						</p>
+						<ul class="inline-list preffix-3">
+							<li><a href="#" class="icon-type-2 icon-sm icon-contrast fa-instagram"></a></li>
+							<li><a href="#" class="icon-type-2 icon-sm icon-contrast fa-twitter"></a></li>
+							<li><a href="#" class="icon-type-2 icon-sm icon-contrast fa-facebook"></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	</footer>
+</div>
+
+<!-- Core Scripts -->
+<script src="{% static 'js/core.min.js' %}"></script>
+ <!--Additional Functionality Scripts -->
+<script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>

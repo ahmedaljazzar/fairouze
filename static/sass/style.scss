@@ -1,0 +1,1449 @@
+/*
+* @package      Style
+* @description  This package holds all common style declarations
+*               of the site
+*/
+
+@import "_variables.scss";
+@import "includes/_mixins.scss";
+
+@import "includes/_normalize.scss";
+@import "modules/_page-layouts.scss";
+@import "modules/tm-grid/_tm-grid.scss";
+
+
+/*
+* @section      Icon Fonts
+* @description  This section holds all icon fonts stored in template
+*/
+
+@import "fonts/_font-awesome.scss";
+@import "fonts/_material-icons.scss";
+@import "fonts/_material-design.scss";
+@import "fonts/_arrows.scss";
+
+/*
+* @section      Main Styles
+* @description  This section holds template default elements style declarations
+*/
+
+html {
+  font-size: 60px;
+
+  @media (min-width: $screen-sm-min) and (max-width: $screen-md-min - 1) {
+    font-size: 70px;
+  }
+
+  @media (min-width: $screen-md-min) and (max-width: $screen-lg-min - 1) {
+    font-size: 80px;
+  }
+
+  @media (min-width: $screen-lg-min) {
+    font-size: 100px;
+  }
+
+  .old-ie {
+    display: none;
+  }
+
+  &.lt-ie11 {
+    .old-ie{
+      display: block;
+    }
+  }
+}
+
+body {
+  font-family: $default-font-family;
+  font-weight: $default-font-weight;
+  font-size: 14px;
+  line-height: 1.7;
+  -webkit-text-size-adjust: none;
+  color: $content-color;
+  background: $content-bg;
+
+  @media (min-width: $screen-sm-min) and (max-width: $screen-md-min - 1) {
+    font-size: 16px;
+  }
+
+  @media (min-width: $screen-md-min) {
+    font-size: $default-font-size;
+    line-height: $default-line-height;
+  }
+}
+
+
+/*
+* @subsection   Typography
+* @description  Describes default font settings for basic html elements and
+*               css classes
+*/
+
+h1, h2, h3, h4, h5, h6,
+.heading-1, .heading-2, .heading-3, .heading-4, .heading-5, .heading-6 {
+  display: block;
+  font-weight: 400;
+  a:hover {
+    color: $primary;
+  }
+}
+
+h1, .heading-1 {
+  font-size: 38px;
+  line-height: 1.2;
+  @media (min-width: $screen-sm-min) {
+    font-size: 50px;
+  }
+  @media (min-width: $screen-md-min) {
+    font-size: 70px;
+  }
+}
+
+h2, .heading-2 {
+  font-size: 35px;
+  line-height: 1.2;
+  @media (min-width: $screen-sm-min) {
+    font-size: 40px;
+  }
+  @media (min-width: $screen-xl-min) {
+    line-height: 1.1;
+    font-size: 60px;
+  }
+}
+
+h3, .heading-3 {
+  font-size: 30px;
+  line-height: 1.2;
+  @media (min-width: $screen-sm-min) {
+    font-size: 38px;
+  }
+  @media (min-width: $screen-md-min) {
+    font-size: 50px;
+  }
+}
+
+h4, .heading-4 {
+  font-size: 26px;
+  line-height: 1.2;
+  @media (min-width: $screen-sm-min) {
+    font-size: 30px;
+    line-height: 1.25;
+  }
+  @media (min-width: $screen-md-min) {
+    font-size: 40px;
+  }
+}
+
+h5, .heading-5 {
+  font-size: 18px;
+  line-height: 1.2;
+  @media (min-width: $screen-sm-min) {
+    font-size: 22px;
+  }
+  @media (min-width: $screen-xl-min) {
+    font-size: 30px;
+    line-height: 1.1;
+  }
+}
+
+h6, .heading-6 {
+  font-size: 16px;
+  line-height: 1.25;
+  @media (min-width: $screen-sm-min) {
+    font-size: 18px;
+  }
+  @media (min-width: $screen-xl-min) {
+    font-size: 20px;
+  }
+}
+
+p, .list, .contact-info {
+  a:hover {
+    color: $primary;
+  }
+}
+
+.big {
+  font-size: 50px;
+  line-height: 1;
+  margin-top: 20px;
+  @media (min-width: $screen-sm-min) {
+    font-size: 70px;
+  }
+  @media (min-width: $screen-lg-min) {
+    font-size: 150px;
+  }
+}
+
+.small {
+  font-size: 13px;
+  line-height: 15px;
+  text-transform: uppercase;
+  color: $grayscale-lightest;
+}
+
+time {
+  &:before{
+    padding-right: 8px;
+  }
+}
+
+
+/*
+* @section      Main Layout
+* @description  This section holds class declarations for elements indent creation
+*/
+
+/*
+* @subsection   Offsets
+* @description  Describes vertical indentation between the elements
+*/
+
+h2 + .row {
+  margin-top: 50px;
+  @media (min-width: $screen-md-min) {
+    margin-top: 100px;
+  }
+}
+
+h2 + .heading-5 {
+  margin-top: 16px;
+}
+
+* + h5{
+  margin-top: 15px;
+}
+
+img + h5 {
+  margin-top: 15px;
+  @media (min-width: $screen-sm-min) {
+    margin-top: 30px;
+  }
+}
+
+img + h6 {
+  margin-top: 30px;
+}
+
+img + .heading-5 {
+  margin-top: 50px;
+}
+
+h5 + h2 {
+  margin-top: 10px;
+}
+
+h2 + p {
+  margin-top: 90px;
+}
+
+* + p {
+  margin-top: 15px;
+}
+
+h5 + h6 {
+  margin-top: 10px;
+  @media (min-width: $screen-md-min) {
+    margin-top: 18px;
+  }
+}
+
+h6 + .small{
+  margin-top: 10px;
+  @media (min-width: $screen-md-min) {
+    margin-top: 20px;
+  }
+}
+
+.small + h5{
+  margin-top: 10px;
+  @media (min-width: $screen-md-min) {
+    margin-top: 20px;
+  }
+}
+
+* + .event-post__info {
+  margin-top: 45px;
+}
+
+* + dl {
+  margin-top: 32px;
+}
+
+dl + h5 {
+  margin-top: 30px;
+  @media (min-width: $screen-sm-min) {
+    margin-top: 50px;
+  }
+  @media (min-width: $screen-lg-min) {
+    margin-top: 95px;
+  }
+}
+
+* + .marked-list {
+  margin-top: 50px;
+  @media (min-width: $screen-md-min) {
+    margin-top: 95px;
+  }
+}
+
+* + .terms-list {
+  margin-top: 100px;
+}
+
+.terms-list + a {
+  margin-top: 65px;
+}
+
+* + .inline-list {
+  margin-top: 30px;
+}
+
+* + .contact-info {
+  margin-top: 20px;
+}
+
+* + .mfControls.offset-9{
+  margin-top: 30px;
+}
+* + .mfControls.offset-1{
+  margin-top: 70px;
+}
+
+* + .btn {
+  margin-top: 65px;
+}
+
+* + .row.offset-9{
+  margin-top: 75px;
+}
+
+* + .row{
+  margin-top: 100px;
+}
+
+.container + .container {
+  margin-top: 50px;
+}
+
+* + .container-fluid{
+  margin-top: 66px;
+}
+
+.container-fluid {
+  * + .row{
+    margin-top: 0;
+  }
+}
+
+* + .rd-mailform{
+  margin-top: 100px;
+
+}
+
+* + .offset {
+  &-1 {
+    margin-top: 75px;
+  }
+
+  &-2 {
+    margin-top: 80px;
+  }
+
+  &-3 {
+    margin-top: 20px;
+  }
+  &-4 {
+    @media (max-width: 1599px) {
+      margin-top: 20px;
+    }
+  }
+  &-6 {
+    margin-top: 60px;
+    @media (min-width: $screen-md-min) {
+      margin-top: 125px;
+    }
+  }
+  &-7 {
+    margin-top: 60px;
+    @media (min-width: $screen-sm-min) {
+      margin-top: 107px;
+    }
+  }
+
+  &-9 {
+    margin-top: 30px;
+  }
+  &-10 {
+    margin-top: 37px;
+  }
+}
+
+.offset-5 {
+  margin-top: 10px;
+  @media (min-width: $screen-sm-min) {
+    margin-top: -10px;
+  }
+  @media (min-width: $screen-md-min) {
+    margin-top: 0;
+  }
+}
+
+* + .row.offset-8 {
+  @media (max-width: 991px) {
+    margin-top: 30px;
+  }
+}
+
+* + .banner {
+  margin-top: 35px;
+  @media (min-width: $screen-md-min) {
+    margin-top: 85px;
+  }
+}
+
+dl + .banner {
+  margin-top: 35px;
+  @media (min-width: $screen-md-min) {
+    margin-top: 96px;
+  }
+}
+
+.flow-offset-1 {
+  @include make-flow-offset(80px);
+}
+
+.flow-offset-2 {
+  @include make-flow-offset(60px);
+}
+
+.flow-offset-3 {
+  @include make-flow-offset(60px);
+  @media (min-width: $screen-md-min) {
+    @include make-flow-offset(85px);
+  }
+}
+
+.flow-offset-4 {
+  @include make-flow-offset(60px);
+  @media (min-width: $screen-md-min) {
+    @include make-flow-offset(80px);
+  }
+}
+
+.flow-offset-5 {
+  @include make-flow-offset(30px);
+}
+
+.container {
+  .rd-navbar-search-results{
+    .result-item + .result-item{
+      margin-top: 30px;
+    }
+  }
+}
+
+/*
+* @subsection   Postfix
+* @description  Describes instant right margin classes
+*/
+
+.postfix-1 {
+  @media (min-width: $screen-md-min) {
+    margin-right: -60px;
+  }
+}
+
+
+/*
+* @subsection   Prefix
+* @description  Describes instant left margin classes
+*/
+
+.preffix-1 {
+  @media (min-width: $screen-md-min) {
+    margin-left: -15px;
+  }
+}
+
+.preffix-2 {
+  @media (min-width: $screen-xl-min) {
+    margin-left: 75px;
+  }
+}
+
+.preffix-3 {
+  @media (min-width: $screen-xl-min) {
+    margin-left: 15px;
+  }
+}
+
+.inline-list.preffix-3 {
+  margin-left: 14px;
+}
+
+.inline-list.preffix-0 {
+  margin-left: 0;
+}
+
+/*
+* @subsection   Insets
+* @description  Describes instant padding classes
+*/
+
+.inset {
+  &-1 {padding: 17px;}
+  &-2 {padding: 20px;}
+  &-3 {padding: 20px;}
+  &-4 {padding: 25px;}
+  &-5 {padding: 15px;}
+  &-6 {padding: 5px 15px 15px 0;}
+  &-8 {padding: 30px 15px;}
+  &-9 {@media (max-width: 1199px) {padding: 0 10px 30px;}}
+  &-11 {padding: 25px;}
+  &-12 {padding: 40px 30px;}
+  &-13 {padding: 30px 20px;}
+  &-14 {padding: 30px;}
+  &-15 {@media (max-width: $screen-sm-min) {padding-top: 30px;}
+  }
+
+  @media (min-width: $screen-sm-min) {
+    &-2 {padding: 67px 42px 74px;}
+    &-6 {padding: 5px 15px 0 5px;}
+    &-7 {padding: 22px 0;}
+    &-8 {padding: 40px 35px 50px 45px;}
+    &-13 {padding: 48px 40px;}
+    &-14 {padding: 60px 220px 66px 42px;}
+  }
+
+  @media (min-width: $screen-md-min) {
+    &-3 {padding: 58px 50px 70px;}
+    &-4 {padding-left: 55px;padding-right: 55px;}
+    &-5 {padding-left: 20px;padding-right: 40px;}
+    &-6 {padding: 15px 15px 0 5px;}
+    &-11 {padding: 47px;}
+    &-12 {padding: 60px 40px 65px;}
+  }
+
+  @media (min-width: $screen-lg-min) {
+    &-1 {padding: 70px 20px 30px;}
+  }
+  @media (min-width: $screen-xl-min) {
+    &-1 {padding: 125px 50px 62px;}
+  }
+}
+
+/*
+* @subsection   Well
+* @description  Describes section inner indents
+*/
+
+.well-1 {
+  .tablet & {
+    padding: 0;
+  }
+  @media (min-width: $screen-lg-min) {
+    padding-top: rem(97px);
+  }
+}
+
+.well-2 {
+  padding-top: rem(215px);
+  padding-bottom: rem(200px);
+}
+
+.well-3 {
+  padding-top: rem(100px);
+  padding-bottom: rem(110px);
+}
+
+.well-4 {
+  padding-top: rem(185px);
+  padding-bottom: rem(167px);
+}
+
+.well-5 {
+  padding-top: rem(215px);
+  padding-bottom: rem(110px);
+  &--inset-1 {
+    padding-top: 30px;
+    padding-bottom: rem(110px);
+  }
+}
+
+.well-6 {
+  padding-top: rem(162px);
+  padding-bottom: rem(113px);
+  &--inset-1 {
+    padding-top: rem(162px);
+    padding-bottom: rem(103px);
+  }
+  &--inset-2 {
+    padding-top: rem(162px);
+    padding-bottom: rem(97px);
+  }
+  &--inset-3 {
+    padding-top: rem(162px);
+    padding-bottom: rem(109px);
+  }
+}
+
+.well-7 {
+  padding-top: rem(172px);
+  padding-bottom: rem(155px);
+  &--inset-1 {
+    padding-top: rem(172px);
+    padding-bottom: rem(164px);
+  }
+}
+
+.well-8 {
+  padding-top: rem(120px);
+  padding-bottom: rem(110px);
+}
+
+.well-9 {
+  padding-top: rem(220px);
+  padding-bottom: 61px;
+  @media (min-width: $screen-md-min) {
+    padding-top: rem(402px);
+  }
+}
+
+.well-10 {
+  padding-top: rem(100px);
+  padding-bottom: rem(102px);
+}
+
+/*
+* @section      Helpers
+* @description  This section holds various helper classes for
+*               conditional page styling
+*/
+
+.border-radius {
+  border-radius: 18px;
+}
+
+.text-color-primary {
+  color: $primary;
+}
+a.text-color-primary {
+  &:hover {
+    color: darken($primary, 10%);
+  }
+}
+
+.text-color-primary-variant-1 {
+  color: $primary-variant-1;
+}
+
+.text-color-contrast {
+  color: $contrast;
+}
+
+.text-color-lightest {
+  color: $grayscale-lightest;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.absolute-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.row-sm-no-gutter {
+  @media (min-width: $screen-sm-min) {
+    margin-left: 0;
+    margin-right: 0;
+
+    > [class*='col'] {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    > * + [class*='col'] {
+      margin-top: 0;
+    }
+  }
+}
+
+.sm-visible {
+  display: none;
+  @media (min-width: $screen-sm-min) {
+    display: block;
+  }
+}
+
+.sm-hidden {
+  @media (min-width: $screen-sm-min) {
+    display: none;
+  }
+}
+
+.lg-hidden {
+  @media (min-width: $screen-lg-min) {
+    display: none;
+  }
+}
+
+.lg-visible {
+  @media (min-width: $screen-lg-min) {
+    display: block;
+  }
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.line-height-variant-1 {
+  line-height: 1;
+}
+.line-height-variant-2 {
+  line-height: 1.8;
+}
+.line-height-variant-3 {
+  line-height: 1.5;
+}
+
+.height100 {
+  height: 100%;
+  width: auto;
+}
+
+.z-index--1 {
+  z-index: -1;
+}
+
+.z-index-2 {
+  z-index: 2;
+}
+
+.wrapper-1 {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  color: $grayscale-lightest;
+  z-index: 3;
+  h1, h2, h3, h4, h5 {
+    color: $contrast;
+  }
+  h6 + a {
+    margin-top: 5px;
+  }
+  h6 {
+    a {
+      color: $primary;
+      &:hover {
+        color: darken($primary, 10%);
+      }
+    }
+  }
+  a.text-color-contrast {
+    &:hover {
+      color: $primary;
+    }
+  }
+  .tablet & {
+    margin: 0;
+  }
+  @media (min-width: $screen-sm-min) {
+    margin-top: 12px;
+    padding: 0;
+    background: $grayscale-default;
+    overflow: hidden;
+    border-radius: 18px;
+    @include transform(translateY(50%));
+  }
+}
+
+.wrapper-2 {
+  z-index: 3;
+  color: $grayscale-lightest;
+  background: $grayscale-default;
+  border-radius: 18px;
+
+  h1, h2, h3, h4, h5 {
+    color: $contrast;
+  }
+  .tablet & {
+    margin: 0;
+  }
+  @media (min-width: $screen-sm-min) {
+    @include transform(translateY(-50%));
+  }
+}
+
+.middle-inline{
+  height: 100%;
+  &:after{
+    content: '';
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .item{
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.flex {
+  display: flex;
+  &-center {
+    justify-content: center;
+    &-to-sm {
+      @media (max-width: 767px) {
+        justify-content: center;
+      }
+    }
+  }
+  &-middle {
+    align-items: center;
+  }
+}
+
+/*
+* @subsection   Colors
+*/
+
+
+/*
+* @subsection   Backgrounds
+*/
+
+.bg-color-grayscale-default {
+  background-color: $grayscale-default;
+}
+
+.sm-bg-color-grayscale-darken {
+  @media (min-width: $screen-sm-min) {
+    background-color: $grayscale-darken;
+  }
+}
+
+.bg-color-grayscale-darken-variant-1 {
+  background-color: $grayscale-darken-variant-1;
+}
+
+.sm-bg-color-grayscale-darken-variant-1 {
+  @media (min-width: $screen-sm-min) {
+    background-color: $grayscale-darken-variant-1;
+  }
+}
+
+.bg-texture-1 {
+  background: url("../images/bg-texture01.jpg") repeat;
+}
+
+.bg-texture-2 {
+  background: url("../images/bg-texture02.jpg") repeat;
+}
+
+.bg-texture-3 {
+  background: url("../images/bg-texture03.jpg") repeat;
+}
+
+.bg-texture-4 {
+  background: url("../images/bg-texture04.jpg") repeat;
+  z-index: 0;
+}
+
+.bg-texture-5 {
+  background: url("../images/bg-texture05.jpg") repeat;
+}
+
+.bg-texture-6 {
+  background: url("../images/bg-texture06.jpg") repeat;
+}
+
+.bg-overlay {
+  position: relative;
+  overflow: hidden;
+  color: $contrast;
+  z-index: 0;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba($grayscale-default, .5);
+    z-index: -1;
+  }
+}
+
+@import "helpers/_floating.scss";
+@import "helpers/_text-alignment.scss";
+@import "helpers/_text-styling.scss";
+@import "helpers/_animate.scss";
+
+/*
+* @section      Components
+* @description  This section holds all elements style declarations of template
+*/
+
+
+/*
+ * @subsection   Box
+ */
+@import "modules/tm-box/_boxes.scss";
+
+.box {
+
+
+}
+
+/*
+* @subsection   Quote
+*/
+.quote{
+
+}
+
+/*
+* @subsection   Pricing Box
+*/
+
+.pricing-box{
+
+}
+
+/*
+* @subsection   Breadcrumbs
+*/
+
+.breadcrumbs{
+
+}
+
+/*
+* @subsection   Post
+*/
+
+.post{
+
+}
+
+.event-post {
+  h5 {
+    margin-bottom: 20px;
+  }
+  a.big {
+    &:hover {
+      color: lighten($primary, 30%);
+    }
+  }
+
+  .event-post__info.box-skin-1 {
+    border-radius: 18px;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    margin-top: 45px;
+    .box__left {
+      background: $primary;
+      padding: 15px;
+      line-height: 1;
+    }
+    .box__body {
+      text-align: left;
+      background: $grayscale-default;
+      padding: 16px;
+      width: 100%;
+      h5 {
+        margin-bottom: 10px;
+      }
+    }
+    @media (min-width: $screen-md-min) {
+      display: block;
+      .box__left {
+        padding: 0 40px 0 40px;
+      }
+      .box__body {
+        padding: 25px 25px 25px 40px;
+        .small {
+          font-size: 15px;
+          line-height: 19px;
+        }
+      }
+    }
+
+    &:hover {
+      @include transform(scale(1.03));
+    }
+
+    &.inline {
+      display: table-cell;
+      @media (min-width: $screen-md-min) {
+        .box__body {
+          padding: 25px 40px;
+        }
+      }
+    }
+  }
+}
+
+.event-post-2 {
+  display: block;
+  min-height: 240px;
+  text-align: left;
+  img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: auto;
+    min-width: 100%;
+    max-width: none;
+    height: auto;
+    min-height: 100%;
+    z-index: -2;
+    transition: .5s;
+  }
+
+  .event-post__info.box-skin-2 {
+    border-radius: 18px;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    margin-top: 70px;
+    max-width: 410px;
+
+    .box__body {
+      text-align: left;
+      background: $grayscale-default;
+      padding: 16px;
+      width: 100%;
+      h5 {
+        margin-bottom: 5px;
+      }
+      .small {
+        font-size: 11px;
+        line-height: 13px;
+      }
+    }
+    .box__right {
+      background: $primary;
+      padding: 15px;
+      line-height: 1;
+    }
+
+    @media (min-width: $screen-xl-min) {
+      display: block;
+      .box__body {
+        padding: 30px 25px 30px 40px;
+        .small {
+          font-size: 13px;
+          line-height: 15px;
+        }
+      }
+      .box__right {
+        padding: 0 23px 0 23px;
+      }
+    }
+  }
+  &:hover {
+    img {
+      @include transform(scale(1.1))
+    }
+  }
+}
+
+.event-post-3 {
+  &_info {
+    max-width: 88%;
+    margin-left: auto;
+    margin-right: auto;
+    @media (min-width: $screen-md-min) {
+      max-width: none;
+    }
+    h6 {
+      margin-top: 15px;
+      @media (min-width: $screen-lg-min) {
+        margin-top: 30px;
+      }
+    }
+  }
+}
+
+.banner {
+  display: block;
+  overflow: hidden;
+  transition: .5s;
+  @extend .border-radius;
+  * {
+    line-height: 1;
+  }
+  &:hover {
+    @include transform(scale(1.05));
+  }
+}
+
+.banner-2 {
+  @extend .banner;
+  text-align: left;
+  position: relative;
+  span {
+    > img {
+      position: absolute;
+      right: 20%;
+      top: 50%;
+      @include transform(translateY(-50%));
+      @media (max-width: 767px) {
+        height: 40%;
+        width: auto;
+      }
+      @media (max-width: 1199px) {
+        right: 10%;
+      }
+    }
+  }
+}
+
+/*
+* @subsection   List
+*/
+
+.list{
+  li + li{
+    margin-top: 10px;
+  }
+}
+
+/*
+* @subsection   Inline List
+*/
+
+.inline-list {
+  @include transform(translateY(-30px));
+  margin-bottom: -30px;
+  margin-left: -30px;
+
+  &-center {
+    text-align: center;
+  }
+  &-left {
+    text-align: left;
+  }
+  &-right {
+    text-align: right;
+  }
+  &-lg-right {
+    @media (min-width: $screen-lg-min) {
+      text-align: right;
+    }
+  }
+
+  > li {
+    display: inline-block;
+    margin-top: 30px;
+
+    & + li {
+      margin-left: 15px;
+    }
+  }
+}
+
+
+/*
+* @subsection   Marked List
+*/
+
+.marked-list {
+  text-align: left;
+  display: inline-block;
+  > li {
+    position: relative;
+    padding-left: 30px;
+    font-size: 15px;
+    line-height: 1.2;
+
+    &:before {
+      content: "\f054";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      @include transform(translateY(-50%));
+      font-weight: 400;
+      font-size: .8em;
+      font-family: $fa;
+      color: $primary;
+    }
+
+    & + li {
+      margin-top: 17px;
+    }
+
+    > a {
+      color: $grayscale-darkest-1;
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+}
+
+/*
+* @subsection   Index List
+*/
+
+.index-list {
+  counter-reset: li;
+  > li {
+    > .index-list__counter{
+      &:before {
+        content: counter(li, decimal-leading-zero) '.';
+        counter-increment: li;
+      }
+    }
+  }
+
+  // Sets offset between list rows
+  @include make-flow-offset(30px);
+}
+
+/*
+* @subsection   Terms  List
+*/
+
+.terms-list {
+  color: $grayscale-default;
+  font-size: 18px;
+  line-height: 1.83;
+  dt, dd {
+    display: block;
+  }
+  dt {
+    float: none;
+    @media (min-width: $screen-sm-min) {
+      text-align: left;
+    }
+  }
+  > dt + dd {
+    margin-top: 15px;
+  }
+
+  > dd + dt {
+    margin-top: 62px;
+  }
+}
+
+/*
+* @subsection   Definition  List
+*/
+
+dl {
+  font-size: 15px;
+  line-height: 1.666;
+  text-align: left;
+  color: $grayscale-darkest-1;
+
+  dt {
+    min-width: 119px;
+    float: left;
+    text-align: center;
+  }
+  dd {
+    display: table-cell;
+    padding-bottom: 10px;
+  }
+}
+
+/*
+* @subsection   Contact Info
+*/
+
+.contact-info {
+  &.xs-visible {
+    @media (max-width: 479px) {
+      display: none;
+    }
+  }
+  display: inline-block;
+  text-align: center;
+  line-height: 1.33;
+  &.line-height-variant-1 {
+    line-height: 1.83;
+  }
+  font-size: 14px;
+  @media (min-width: $screen-sm-min) {
+    text-align: left;
+  }
+  @media (min-width: $screen-md-min) {
+    font-size: 18px;
+  }
+  .box {
+    display: inline-block;
+
+    .box__left {
+      min-width: 20px;
+      padding-right: 6px;
+      transition: .5s;
+      &.inset-1 {
+        @media (min-width: $screen-md-min) {
+          padding-right: 20px;
+        }
+      }
+      vertical-align: top;
+      span {
+        color: $grayscale-lightest;
+        font-size: 24px;
+        line-height: 1;
+        transition: .5s;
+        &.icon-big {
+          font-size: 60px;
+        }
+      }
+    }
+    .box__body {
+      color: $grayscale-default;
+      max-width: 335px;
+      transition: .5s;
+      &.text-color-primary {
+        color: $primary;
+      }
+      a{
+        &:hover {
+          color: $primary;
+        }
+        &.text-color-primary:hover {
+          color: darken($primary,10%);
+        }
+      }
+    }
+    & + * {
+      margin-top: 5px;
+    }
+  }
+
+  a:hover {
+    .box__body {
+      color: $primary;
+    }
+  }
+}
+
+
+/*
+* @subsection   Owl Carousel
+*/
+
+.owl-carousel  {
+  @media (max-width: 1199px) {
+    padding-top: 30px;
+  }
+  .owl-item{
+    width: 100%;
+  }
+}
+
+//*
+//Imports
+//*
+
+@import "components/_buttons.scss";
+@import "components/_icons.scss";
+
+
+/*
+* @section      Extensions
+* @description  This section holds some of style declarations for necessary
+*               scripts
+*/
+
+@import "extensions/_rd-navbar.scss";
+@import "extensions/_rd-mailform.scss";
+@import "extensions/_rd-google-map.scss";
+@import "extensions/_rd-parallax.scss";
+@import "extensions/_ui-to-top.scss";
+@import "extensions/_responsive-tabs.scss";
+@import "extensions/_owl-carousel.scss";
+@import "extensions/_swiper.scss";
+
+/*
+* @section      Page Header
+* @description  This section holds specific style redeclarations for some
+*               of common elements in page header
+*/
+
+.page-header {
+
+}
+
+
+/*
+* @section      Page Content
+* @description  This section holds specific style redeclarations for some
+*               of common elements in page content
+*/
+
+.page-content {
+  .desktop & {
+    min-height: 100vh;
+  }
+}
+
+/*
+* @section      Page Footer
+* @description  This section holds specific style redeclarations for some
+*               of common elements in page footer
+*/
+
+.page-footer {
+  color: $grayscale-lightest;
+  .wrapper {
+    h6 {
+      color: rgba($grayscale-lightest,.4);
+    }
+  }
+  address {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 20px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    &:hover {
+      color: $primary;
+    }
+
+    span {
+      margin-right: 30px;
+    }
+    @media (min-width: $screen-sm-min) {
+      font-size: 16px;
+      line-height: 25px;
+    }
+  }
+  img {
+    width: auto;
+  }
+}
+
+.copyright {
+  margin-top: -30px;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: center;
+}

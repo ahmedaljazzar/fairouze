@@ -21,6 +21,7 @@ from django.conf.urls import url, include
 from rest_framework import routers
 from rest_framework.documentation import include_docs_urls
 
+from fairuze import views
 from songs import views as songs_views
 from accounts import views as accounts_views
 
@@ -40,6 +41,15 @@ router.register(r'accounts', accounts_views.AccountsViewSet,
 
 # URL Patterns
 urlpatterns = [
+
+    # This view should be removed.
+    url(r'^$', views.home_view, name='home'),
+    url(r'^djs/$', views.djs_and_shows_view, name='djs'),
+    url(r'^events/$', views.events_view, name='events'),
+    url(r'^news/$', views.news_view, name='news'),
+    url(r'^schedule/$', views.schedule_view, name='schedule'),
+    url(r'^contacts/$', views.contacts_view, name='contacts'),
+    url(r'^policy/$', views.policy_view, name='policy'),
 
     url(r'^admin/', admin.site.urls),
 

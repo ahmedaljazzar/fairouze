@@ -1,0 +1,632 @@
+﻿{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" class="wide wow-animation">
+<head>
+	<!-- Site Title -->
+	<title>Home</title>
+	<meta name="format-detection" content="telephone=no"/>
+	<meta name="viewport"
+		  content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+
+	<!-- Stylesheets -->
+	<link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+	<link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+	<!--[if lt IE 10]>
+	<script src="{% static 'js/html5shiv.min.js' %}"></script>
+	<![endif]-->
+</head>
+<body>
+<!-- The Main Wrapper -->
+<div class="page">
+
+	<!--For older internet explorer-->
+	<div class="old-ie"
+		 style='background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;'>
+		<a href="http://windows.microsoft.com/en-US/internet-explorer/..">
+			<img src="{% static 'images/ie8-panel/warning_bar_0000_us.jpg' %}" height="42" width="820"
+				 alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."/>
+		</a>
+	</div>
+	<!--END block for older internet explorer-->
+
+	<!--========================================================
+							  HEADER
+	=========================================================-->
+	<header class="page-header bg-texture-1 well-1 relative">
+		<!-- RD Navbar -->
+		<div class="rd-navbar-wrap">
+			<nav class="rd-navbar" data-rd-navbar-lg="rd-navbar-static">
+				<div class="rd-navbar-inner">
+					<!-- RD Navbar Panel -->
+					<div class="rd-navbar-panel">
+
+						<!-- RD Navbar Toggle -->
+						<button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar"><span></span></button>
+						<!-- END RD Navbar Toggle -->
+
+						<!-- RD Navbar Brand -->
+						<a href="{% url 'home' %}" class="rd-navbar-brand box">
+							<div class="box__left">
+									<span class="brand-logo icon icon-sm icon-primary">
+										 <img src="{% static 'images/page1_icon01.png' %}" width="35" height="25" alt="">
+									</span>
+							</div>
+							<div class="box__body">
+								<div class="brand-name">Fairu<span class="text-color-primary">ze.</span></div>
+								<div class="brand-slogan">Radio station</div>
+							</div>
+						</a>
+						<!-- END RD Navbar Brand -->
+					</div>
+					<!-- END RD Navbar Panel -->
+
+					<div class="rd-navbar-nav-wrap">
+
+						<!-- RD Navbar Nav -->
+						<ul class="rd-navbar-nav">
+							<li class="active">
+								<a href="{% url 'home' %}">Home</a>
+							</li>
+							<li>
+								<a href="{% url 'djs' %}">DJs & Shows</a>
+
+								<!-- RD Navbar Dropdown -->
+								<ul class="rd-navbar-dropdown">
+									<li>
+										<a href="#">DJ Suzana</a>
+									</li>
+									<li>
+										<a href="#">DJ Smith</a>
+									</li>
+									<li>
+										<a href="#">DJ Amarok</a>
+										<ul class="rd-navbar-dropdown">
+											<li>
+												<a href='#'>Morning Show</a>
+											</li>
+											<li>
+												<a href='#'>Evening Shows</a>
+											</li>
+											<li>
+												<a href='#'>Night Show</a>
+											</li>
+											<li>
+												<a href='#'>Weekend Show</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+								<!-- END RD Navbar Dropdown -->
+
+							</li>
+							<li>
+								<a href="{% url 'events' %}">Events</a>
+							</li>
+							<li>
+								<a href="{% url 'news' %}">News & Info</a>
+								<!-- RD Navbar Megamenu -->
+								<ul class="rd-navbar-megamenu">
+									<li>
+										<img class="border-radius" src="{% static 'images/page1_img16.jpg' %}"  width="270" height="210" alt="">
+										<h6 class="text-color-primary">Music News</h6>
+										<p><a href="#">Adele UK Tour<br>
+											is Happening!</a></p>
+									</li>
+									<li>
+										<img class="border-radius" src="{% static 'images/page1_img17.jpg' %}" width="270" height="210" alt="">
+										<h6 class="text-color-primary">Music News</h6>
+										<p><a href="#">Coldplay Turn Chimps<br>
+											in Their New Video.</a>
+										</p>
+									</li>
+								</ul>
+								<!-- END RD Navbar Megamenu -->
+							</li>
+							<li>
+								<a href="{% url 'schedule' %}">Schedule</a>
+							</li>
+							<li>
+								<a href="{% url 'contacts' %}">Contacts</a>
+							</li>
+						</ul>
+						<!-- END RD Navbar Nav -->
+					</div>
+				</div>
+			</nav>
+		</div>
+		<!-- END RD Navbar -->
+
+
+		<div class="container relative z-index-2">
+			<div class="wrapper-1 text-center text-sm-left">
+				<div class="row row-no-gutter row-xs-middle row-sm-reverse">
+					<div class="col-sm-7 col-lg-6">
+						<div class="row row-sm-no-gutter row-sm-reverse flow-offset-5">
+							<div class="col-sm-5 sm-bg-color-grayscale-darken-variant-1 text-center">
+								<div class="inset-7">
+									<a href="#" class="btn_play item">
+										Listen<br>Live
+								<span>
+									<img src="{% static 'images/page1_icon02.png' %}" width="30" height="30" alt="">
+								</span>
+									</a>
+								</div>
+							</div>
+							<div class="col-sm-7 sm-bg-color-grayscale-darken flex flex-middle flex-center-to-sm offset-9">
+								<div class="box inset-5">
+									<div class="box__left">
+										<img class="icon-type-2" src="{% static 'images/page1_img01.jpg' %}" width="75" height="72" alt="">
+									</div>
+									<div class="box__body text-left">
+										<h6>On Air</h6>
+										<a href="#" class="heading-6 text-color-contrast">DJ Suzana</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-5 col-lg-6">
+						<div class="inset-4">
+							<h6> Now Playing on <a href="#">Fairuze.</a></h6>
+							<a href="#" class="heading-6 text-color-contrast inline-block">Johnny Cash - Cry, Cry, Cry</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!--========================================================
+							  CONTENT
+	=========================================================-->
+	<main class="page-content text-center text-md-left">
+		<!-- RD Parallax -->
+		<section class="rd-parallax text-color-contrast text-left">
+			<div class="rd-parallax-layer" data-speed="0.3" data-type="media"
+				 data-url="{% static 'images/page1_parallax01.jpg' %}"></div>
+			<div class="well-2 rd-parallax-layer" data-speed="0" data-type="html" data-fade="false">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-6">
+							<article class="event-post">
+								<h5 class="text-color-primary">Upcoming Event</h5>
+								<div class="big">The<br><span class="preffix-1">
+                                    Kooks</span></div>
+								<a href="#" class="event-post__info box box-skin-1">
+									<div class="box__left heading-2">21/12</div>
+									<div class="post__data box__body">
+										<h5>
+											Hall of Music
+										</h5>
+										<address class="small">
+											28 Jackson Blvd Ste 1020<br class="sm-hidden lg-visible">
+											Chicago, IL 60604-2340
+										</address>
+									</div>
+								</a>
+							</article>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- END RD Parallax-->
+		<section>
+			<div class="row row-no-gutter bg-color-grayscale-default">
+				<!-- Owl Carousel -->
+				<div class="owl-carousel"
+					 data-autoplay="true"
+					 data-autoplay-timeout="3000"
+					 data-smart-speed="2000"
+					 data-loop="true"
+					 data-nav="false"
+					 data-dots="false"
+					 data-items="1"
+					 data-sm-items="2"
+					 data-lg-items="4"
+					 data-stage-padding="40"
+					 data-xs-stage-padding="60"
+					 data-lg-stage-padding="0"
+					 data-margin="20"
+					 data-xs-margin="30"
+					 data-lg-margin="0">
+					<div class="owl-item">
+						<a href="#" class="event-post-2 bg-overlay inset-1">
+							<img src="{% static 'images/page1_img02.jpg' %}" width="512" height="518" alt="">
+							<div class="heading-2">Pearl<br>
+								Jam</div>
+							<div class="event-post__info box box-skin-2">
+
+								<div class="post__data box__body">
+									<h5>
+										Hall of Music
+									</h5>
+									<address class="small">
+										28 Jackson Blvd Ste 1020<br class="lg-hidden">
+										Chicago, IL 60604-2340
+									</address>
+								</div>
+								<div class="box__right heading-5">22/12</div>
+							</div>
+						</a>
+					</div>
+					<div class="owl-item">
+						<a href="#" class="event-post-2 bg-overlay inset-1">
+							<img src="{% static 'images/page1_img03.jpg' %}" width="512" height="518" alt="">
+							<div class="heading-2">Chet<br>
+								Faker</div>
+							<div class="event-post__info box box-skin-2">
+
+								<div class="post__data box__body">
+									<h5>
+										Hall of Music
+									</h5>
+									<address class="small">
+										28 Jackson Blvd Ste 1020<br class="lg-hidden">
+										Chicago, IL 60604-2340
+									</address>
+								</div>
+								<div class="box__right heading-5">23/12</div>
+							</div>
+						</a>
+					</div>
+					<div class="owl-item">
+						<a href="#" class="event-post-2 bg-overlay inset-1">
+							<img src="{% static 'images/page1_img04.jpg' %}" width="512" height="518" alt="">
+							<div class="heading-2">Mark<br>
+								Lanegan</div>
+							<div class="event-post__info box box-skin-2">
+
+								<div class="post__data box__body">
+									<h5>
+										Hall of Music
+									</h5>
+									<address class="small">
+										28 Jackson Blvd Ste 1020<br class="lg-hidden">
+										Chicago, IL 60604-2340
+									</address>
+								</div>
+								<div class="box__right heading-5">24/12</div>
+							</div>
+						</a>
+					</div>
+					<div class="owl-item">
+						<a href="#" class="event-post-2 bg-overlay inset-1">
+							<img src="{% static 'images/page1_img05.jpg' %}" width="512" height="518" alt="">
+							<div class="heading-2">Dave<br>
+								Gahan</div>
+							<div class="event-post__info box box-skin-2">
+
+								<div class="post__data box__body">
+									<h5>
+										Hall of Music
+									</h5>
+									<address class="small">
+										28 Jackson Blvd Ste 1020<br class="lg-hidden">
+										Chicago, IL 60604-2340
+									</address>
+								</div>
+								<div class="box__right heading-5">25/12</div>
+							</div>
+						</a>
+					</div>
+
+				</div>
+				<!-- END Owl Carousel -->
+
+				<!-- Owl Carousel -->
+				<div class="owl-carousel"
+					 data-autoplay="true"
+					 data-autoplay-timeout="5000"
+					 data-smart-speed="2000"
+					 data-loop="true"
+					 data-nav="false"
+					 data-dots="false"
+					 data-items="1"
+					 data-sm-items="2"
+					 data-lg-items="4"
+					 data-stage-padding="40"
+					 data-xs-stage-padding="60"
+					 data-lg-stage-padding="0"
+					 data-margin="20"
+					 data-xs-margin="30"
+					 data-lg-margin="0">
+
+					<div class="owl-item">
+						<a href="#" class="event-post-2 bg-overlay inset-1">
+							<img src="{% static 'images/page1_img06.jpg' %}" width="512" height="518" alt="">
+							<div class="heading-2">Alabama<br>
+								Shakes</div>
+							<div class="event-post__info box box-skin-2">
+
+								<div class="post__data box__body">
+									<h5>
+										Hall of Music
+									</h5>
+									<address class="small">
+										28 Jackson Blvd Ste 1020<br class="lg-hidden">
+										Chicago, IL 60604-2340
+									</address>
+								</div>
+								<div class="box__right heading-5">26/12</div>
+							</div>
+						</a>
+					</div>
+					<div class="owl-item">
+						<a href="#" class="event-post-2 bg-overlay inset-1">
+							<img src="{% static 'images/page1_img07.jpg' %}" width="512" height="518" alt="">
+							<div class="heading-2">Paolo<br>
+								Nutini</div>
+							<div class="event-post__info box box-skin-2">
+
+								<div class="post__data box__body">
+									<h5>
+										Hall of Music
+									</h5>
+									<address class="small">
+										28 Jackson Blvd Ste 1020<br class="lg-hidden">
+										Chicago, IL 60604-2340
+									</address>
+								</div>
+								<div class="box__right heading-5">27/12</div>
+							</div>
+						</a>
+					</div>
+					<div class="owl-item">
+						<a href="#" class="event-post-2 bg-overlay inset-1">
+							<img src="{% static 'images/page1_img08.jpg' %}" width="512" height="518" alt="">
+							<div class="heading-2">Tame<br>
+								Ipmala</div>
+							<div class="event-post__info box box-skin-2">
+
+								<div class="post__data box__body">
+									<h5>
+										Hall of Music
+									</h5>
+									<address class="small">
+										28 Jackson Blvd Ste 1020<br class="lg-hidden">
+										Chicago, IL 60604-2340
+									</address>
+								</div>
+								<div class="box__right heading-5">28/12</div>
+							</div>
+						</a>
+					</div>
+					<div class="owl-item">
+						<a href="#" class="event-post-2 bg-overlay inset-1">
+							<img src="{% static 'images/page1_img09.jpg' %}" width="512" height="518" alt="">
+							<div class="heading-2">The Black<br>
+								Keys</div>
+							<div class="event-post__info box box-skin-2">
+
+								<div class="post__data box__body">
+									<h5>
+										Hall of Music
+									</h5>
+									<address class="small">
+										28 Jackson Blvd Ste 1020<br class="lg-hidden">
+										Chicago, IL 60604-2340
+									</address>
+								</div>
+								<div class="box__right heading-5">29/12</div>
+							</div>
+						</a>
+					</div>
+
+				</div>
+				<!-- END Owl Carousel -->
+			</div>
+		</section>
+
+		<section class="well-3 text-sm-left">
+			<div class="container">
+				<div class="row flow-offset-2">
+					<div class="col-lg-8">
+						<h2 class="text-color-primary">Latest News</h2>
+						<div class="row flow-offset-1">
+							<div class="col-sm-6">
+								<img class="border-radius" src="{% static 'images/page1_img10.jpg' %}" width="270" height="270" alt="">
+								<h6 class="text-color-primary">Music News</h6>
+								<h5><a href="#">Adele UK Tour<br>
+									is Happening!</a></h5>
+							</div>
+							<div class="col-sm-6">
+								<img class="border-radius" src="{% static 'images/page1_img11.jpg' %}" width="270" height="270" alt="">
+								<h6 class="text-color-primary">Music News</h6>
+								<h5><a href="#">Coldplay Turn Chimps<br>
+									in Their New Video.</a>
+								</h5>
+							</div>
+							<div class="col-sm-6">
+								<img class="border-radius" src="{% static 'images/page1_img12.jpg' %}" width="270" height="270" alt="">
+								<h6 class="text-color-primary">Music News</h6>
+								<h5><a href="#">Lady Gaga is working<br>
+									with Mark Ronson</a></h5>
+							</div>
+							<div class="col-sm-6">
+								<img class="border-radius" src="{% static 'images/page1_img13.jpg' %}" width="270" height="270" alt="">
+								<h6 class="text-color-primary">Music News</h6>
+								<h5><a href="#">Rihanna announces<br>
+									ANTI World Tour</a></h5>
+							</div>
+						</div>
+						<a href="#" class="btn btn-lg btn-default btn-anis offset-2">
+							<img class="icon icon-left icon-inset-1" src="{% static 'images/page1_icon03.png' %}" width="21" height="27" alt="">
+							<span class="inline-block">View All</span>
+						</a>
+					</div>
+					<div class="col-lg-4">
+						<div class="row row-sm-middle flow-offset-3">
+							<div class="col-sm-6 col-lg-12">
+								<h2>Music Chart</h2>
+								<ul class="marked-list">
+									<li class="wow fadeInRight" data-wow-delay="0.1s"><a href="#">Eric Clapton — Cocaine</a></li>
+									<li class="wow fadeInRight" data-wow-delay="0.2s"><a href="#">Eric Clapton — Rambling On My Mind</a></li>
+									<li class="wow fadeInRight" data-wow-delay="0.3s"><a href="#">Stevie Ray Vaughan — Texas Flood</a></li>
+									<li class="wow fadeInRight" data-wow-delay="0.4s"><a href="#">Fleetwood Mac — I Loved Another Woman</a></li>
+									<li class="wow fadeInRight" data-wow-delay="0.5s"><a href="#">Stevie Ray Vaughan — Pride and Joy</a></li>
+									<li class="wow fadeInRight" data-wow-delay="0.6s"><a href="#">Buddy Guy — Messing With The Kid</a></li>
+									<li class="wow fadeInRight" data-wow-delay="0.7s"><a href="#">B.B. King & Eric Clapton — The Thrill Is Gone</a></li>
+									<li class="wow fadeInRight" data-wow-delay="0.8s"><a href="#">Robert Johnson — Sweet Home Chicago </a></li>
+									<li class="wow fadeInRight" data-wow-delay="0.9s"><a href="#">Gary Moore — Stormy Monday</a></li>
+								</ul>
+							</div>
+							<div class="col-sm-6 col-lg-12 text-sm-left">
+								<a class="banner bg-texture-6" href="#">
+									<div class="inset-2">
+										<h5>Listen to</h5>
+
+										<h2 class="text-color-contrast">Fairuze.
+											Live</h2>
+										<h5 class="text-color-primary-variant-1">From Anywhere
+											with</h5>
+									</div>
+									<div class="bg-color-grayscale-default">
+										<div class="inset-3">
+											<img src="{% static 'images/page1_img14.png' %}" width="269" height="57" alt="">
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="well-4 bg-texture-5 text-center">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-preffix-3 col-sm-6">
+						<img src="{% static 'images/page1_img15.png' %}" width="524" height="78" alt="">
+						<div class="heading-5 text-color-primary line-height-variant-1">Follow Us on Mixcloud <br class="sm-visible">
+							and Stay Tuned with Our Podcasts</div>
+						<a href="#" class="btn btn-lg btn-contrast btn-anis-type-2">
+							<img class="icon icon-left icon-inset-2" src="{% static 'images/page1_icon04.png' %}" width="25" height="26" alt="">
+							<span class="inline-block">Follow Us</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- RD Google Map -->
+		<div class="rd-google-map">
+			<div id="google-map" class="rd-google-map__model"></div>
+			<ul class="rd-google-map__locations">
+				<li data-x="-73.9874068" data-y="40.643180">
+					<div>
+						<div>9870 St Vincent Place, Glasgow, DC 45 Fr 45.</div>
+						<div>800 2345-6789</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<!-- END RD Google Map -->
+
+
+	</main>
+	<!--========================================================
+							  FOOTER
+	==========================================================-->
+	<footer class="page-footer text-center text-lg-left bg-texture-2">
+
+		<div class="container relative inset-15">
+			<div class="wrapper-2 text-center text-md-left">
+				<div class="row row-no-gutter row-xs-middle inset-8 preffix-3">
+					<div class="col-md-5 col-lg-5">
+						<img class="inset-6" src="{% static 'images/page1_icon05.png' %}" width="34" height="25" alt="">
+						<h4 class="inline-block">Newsletter</h4>
+						<h6 class="offset-4">Subscribe to our newsletter to receive news, updates, and another stuff
+							by email.</h6>
+					</div>
+					<div class="col-md-preffix-1 col-md-6 col-lg-preffix-1 col-lg-6 no-margin">
+						<!-- RD Mailform -->
+						<form class='rd-mailform' method="post" action="bat/rd-mailform.php">
+							<!-- RD Mailform Type -->
+							<input type="hidden" name="form-type" value="subscribe"/>
+							<!-- END RD Mailform Type -->
+							<fieldset class="offset-3 preffix-2">
+								<label data-add-placeholder class="label">
+									<input type="text"
+										   name="email"
+										   placeholder="Your Email Address"
+										   data-constraints="@NotEmpty @Email"/>
+								</label>
+								<div class="mfControls btn-group absolute offset-9">
+									<button class="btn btn-type-2 btn-md btn-primary btn-anis-type-3" type="submit">
+										Subscribe
+									</button>
+								</div>
+								<div class="mfInfo"></div>
+							</fieldset>
+						</form>
+						<!-- END RD Mailform -->
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+		<section class="well-5--inset-1">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4">
+
+						<!-- Brand -->
+						<a href="{% url 'home' %}" class="rd-navbar-brand box">
+							<div class="box__left">
+									<span class="brand-logo icon icon-sm icon-primary">
+										 <img src="{% static 'images/page1_icon01.png' %}" width="35" height="25" alt="">
+									</span>
+							</div>
+							<div class="box__body">
+								<div class="brand-name">Fairu<span class="text-color-primary">ze.</span></div>
+								<div class="brand-slogan">Radio station</div>
+							</div>
+						</a>
+						<!-- END Brand -->
+
+					</div>
+					<div class="col-lg-preffix-1 col-lg-4">
+						<address class="inset-9">
+							<a href="#" class="box">
+								<div class="box__left">
+									<img src="{% static 'images/page1_icon06.png' %}" width="31" height="38" alt="">
+								</div>
+								<div class="box__body text-left">
+									28 Jackson Blvd Ste 1020<br>
+									Chicago, IL 60604-2340
+								</div>
+							</a>
+						</address>
+					</div>
+					<div class="col-lg-3">
+						<p class="copyright">
+							<span class="text-color-primary">Fairuze. </span>&copy; <span id="copyright-year"></span> |
+							<a href='{% url 'policy' %}'>Privacy Policy</a>
+							More Radio Website Templates at <a rel="nofollow" href="http://www.templatemonster.com/category.php?category=210&type=1" target="_blank">TemplateMonster.com</a>
+						</p>
+						<ul class="inline-list preffix-3">
+							<li><a href="#" class="icon-type-2 icon-sm icon-contrast fa-instagram"></a></li>
+							<li><a href="#" class="icon-type-2 icon-sm icon-contrast fa-twitter"></a></li>
+							<li><a href="#" class="icon-type-2 icon-sm icon-contrast fa-facebook"></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+	</footer>
+</div>
+
+<!-- Core Scripts -->
+<script src="{% static 'js/core.min.js' %}"></script>
+<!-- Additional Functionality Scripts -->
+<script src="{% static 'js/script.js' %}"></script>
+
+
+</body>
+</html>

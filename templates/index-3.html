@@ -1,0 +1,331 @@
+﻿{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" class="wide wow-animation">
+<head>
+	<!-- Site Title -->
+	<title>Home</title>
+	<meta name="format-detection" content="telephone=no"/>
+	<meta name="viewport"
+		  content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+
+	<!-- Stylesheets -->
+	<link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+	<link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+	<!--[if lt IE 10]>
+	<script src="{% static 'js/html5shiv.min.js' %}"></script>
+	<![endif]-->
+</head>
+<body>
+<!-- The Main Wrapper -->
+<div class="page">
+
+	<!--For older internet explorer-->
+	<div class="old-ie"
+		 style='background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;'>
+		<a href="http://windows.microsoft.com/en-US/internet-explorer/..">
+			<img src="{% static 'images/ie8-panel/warning_bar_0000_us.jpg' %}" height="42" width="820"
+				 alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."/>
+		</a>
+	</div>
+	<!--END block for older internet explorer-->
+
+	<!--========================================================
+							  HEADER
+	=========================================================-->
+	<header class="page-header bg-texture-1 well-1">
+		<!-- RD Navbar -->
+		<div class="rd-navbar-wrap">
+			<nav class="rd-navbar" data-rd-navbar-lg="rd-navbar-static">
+				<div class="rd-navbar-inner">
+					<!-- RD Navbar Panel -->
+					<div class="rd-navbar-panel">
+
+						<!-- RD Navbar Toggle -->
+						<button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar"><span></span></button>
+						<!-- END RD Navbar Toggle -->
+
+						<!-- RD Navbar Brand -->
+						<a href="{% url 'home' %}" class="rd-navbar-brand box">
+							<div class="box__left">
+									<span class="brand-logo icon icon-sm icon-primary">
+										 <img src="{% static 'images/page1_icon01.png' %}" width="35" height="25" alt="">
+									</span>
+							</div>
+							<div class="box__body">
+								<div class="brand-name">Fairu<span class="text-color-primary">ze.</span></div>
+								<div class="brand-slogan">Radio station</div>
+							</div>
+						</a>
+						<!-- END RD Navbar Brand -->
+					</div>
+					<!-- END RD Navbar Panel -->
+
+					<div class="rd-navbar-nav-wrap">
+
+						<!-- RD Navbar Nav -->
+						<ul class="rd-navbar-nav">
+							<li>
+								<a href="{% url 'home' %}">Home</a>
+							</li>
+							<li>
+								<a href="{% url 'djs' %}">DJs & Shows</a>
+
+								<!-- RD Navbar Dropdown -->
+								<ul class="rd-navbar-dropdown">
+									<li>
+										<a href="#">DJ Suzana</a>
+									</li>
+									<li>
+										<a href="#">DJ Smith</a>
+
+									</li>
+									<li>
+										<a href="#">DJ Amarok</a>
+										<ul class="rd-navbar-dropdown">
+											<li>
+												<a href='#'>Morning Show</a>
+											</li>
+											<li>
+												<a href='#'>Evening Shows</a>
+											</li>
+											<li>
+												<a href='#'>Night Show</a>
+											</li>
+											<li>
+												<a href='#'>Weekend Show</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+								<!-- END RD Navbar Dropdown -->
+
+							</li>
+							<li>
+								<a href="{% url 'events' %}">Events</a>
+							</li>
+							<li class="active">
+								<a href="{% url 'news' %}">News & Info</a>
+								<!-- RD Navbar Megamenu -->
+								<ul class="rd-navbar-megamenu">
+									<li>
+										<img class="border-radius" src="{% static 'images/page1_img10.jpg' %}" width="270" height="270" alt="">
+										<h6 class="text-color-primary">Music News</h6>
+										<p><a href="#">Adele UK Tour<br>
+											is Happening!</a></p>
+									</li>
+									<li>
+										<img class="border-radius" src="{% static 'images/page1_img11.jpg' %}" width="270" height="270" alt="">
+										<h6 class="text-color-primary">Music News</h6>
+										<p><a href="#">Coldplay Turn Chimps<br>
+											in Their New Video.</a>
+										</p>
+									</li>
+								</ul>
+								<!-- END RD Navbar Megamenu -->
+							</li>
+							<li>
+								<a href="{% url 'schedule' %}">Schedule</a>
+							</li>
+							<li>
+								<a href="{% url 'contacts' %}">Contacts</a>
+							</li>
+						</ul>
+						<!-- END RD Navbar Nav -->
+					</div>
+				</div>
+			</nav>
+		</div>
+		<!-- END RD Navbar -->
+
+		<div class="container relative z-index-2">
+			<div class="wrapper-1 text-center text-sm-left">
+				<div class="row row-no-gutter row-xs-middle row-sm-reverse">
+					<div class="col-sm-7 col-lg-6">
+						<div class="row row-sm-no-gutter row-sm-reverse flow-offset-5">
+							<div class="col-sm-5 sm-bg-color-grayscale-darken-variant-1 text-center">
+								<div class="inset-7">
+									<a href="#" class="btn_play item">
+										Listen<br>Live
+								<span>
+									<img src="{% static 'images/page1_icon02.png' %}" width="30" height="30" alt="">
+								</span>
+									</a>
+								</div>
+							</div>
+							<div class="col-sm-7 sm-bg-color-grayscale-darken flex flex-middle flex-center-to-sm offset-9">
+								<div class="box inset-5">
+									<div class="box__left">
+										<img class="icon-type-2" src="{% static 'images/page1_img01.jpg' %}" width="75" height="72" alt="">
+									</div>
+									<div class="box__body text-left">
+										<h6>On Air</h6>
+										<a href="#" class="heading-6 text-color-contrast">DJ Suzana</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-5 col-lg-6">
+						<div class="inset-4">
+							<h6> Now Playing on <a href="#">Fairuze.</a></h6>
+							<a href="#" class="heading-6 text-color-contrast inline-block">Johnny Cash - Cry, Cry, Cry</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</header>
+	<!--========================================================
+							  CONTENT
+	=========================================================-->
+	<main class="page-content text-center text-md-left">
+
+		<section class="well-6--inset-1 text-lg-left">
+			<div class="container">
+				<h2 class="text-color-primary">News</h2>
+				<div class="row wow fadeInRight" data-wow-delay="0.3s">
+					<div class="col-xs-12">
+						<img class="border-radius" src="{% static 'images/page4_img01.jpg' %}" width="1170" height="400" alt="">
+					</div>
+					<div class="col-md-9 offset-9">
+						<h5>2016 Broadcaster Cloud Achievements</h5>
+						<p>It’s no secret that Broadcaster Cloud is growing ever since its inception into the market. If you haven’t joined the bandwagon of moving your radio station to the cloud, ...</p>
+					</div>
+					<div class="col-md-3 offset-10 text-md-right">
+						<a href="#" class="btn btn-lg btn-primary btn-anis-type-2">
+							<img class="icon icon-left icon-inset-1" src="{% static 'images/page1_icon03.png' %}" width="21" height="27" alt="">
+							<span class="inline-block">Read More</span>
+						</a>
+					</div>
+				</div>
+				<div class="row wow fadeInLeft" data-wow-delay="0.3s">
+					<div class="col-xs-12">
+						<img class="border-radius" src="{% static 'images/page4_img02.jpg' %}" width="1170" height="400" alt="">
+					</div>
+					<div class="col-md-9 offset-9">
+						<h5>Fairu<span class="text-color-primary">ze.</span> 2016 Achievements Infographic</h5>
+						<p>2016 has been an amazing year for Fairuze. Our Infographic sums it all! Surely, numbers don’t lie. A big thank you to all our loyal customers for your support ...</p>
+					</div>
+					<div class="col-md-3 offset-10 text-md-right">
+						<a href="#" class="btn btn-lg btn-primary btn-anis-type-2">
+							<img class="icon icon-left icon-inset-1" src="{% static 'images/page1_icon03.png' %}" width="21" height="27" alt="">
+							<span class="inline-block">Read More</span>
+						</a>
+					</div>
+				</div>
+				<div class="row wow fadeInRight" data-wow-delay="0.3s">
+					<div class="col-xs-12">
+						<img class="border-radius" src="{% static 'images/page4_img03.jpg' %}" width="1170" height="400" alt="">
+					</div>
+					<div class="col-md-9 offset-9">
+						<h5>The Role of Internet Radio Stations During the<br />
+							Festive Season</h5>
+						<p>As Christmas fast approaches, there’s one subject on everyone’s lips. With people driving home for Christmas, getting creative in the kitchen and taking some time out from work ...</p>
+					</div>
+					<div class="col-md-3 offset-10 text-md-right">
+						<a href="#" class="btn btn-lg btn-primary btn-anis-type-2">
+							<img class="icon icon-left icon-inset-1" src="{% static 'images/page1_icon03.png' %}" width="21" height="27" alt="">
+							<span class="inline-block">Read More</span>
+						</a>
+					</div>
+				</div>
+				<div class="row wow fadeInLeft" data-wow-delay="0.3s">
+					<div class="col-xs-12">
+						<img class="border-radius" src="{% static 'images/page4_img04.jpg' %}" width="1170" height="400" alt="">
+					</div>
+					<div class="col-md-9 offset-9">
+						<h5>Broadcaster Cloud – December 2016 Release</h5>
+						<p>We improved the time it takes to calculate the statistics of the categories loaded on the Playblocks tab. There was a case where…</p>
+					</div>
+					<div class="col-md-3 offset-10 text-md-right">
+						<a href="#" class="btn btn-lg btn-primary btn-anis-type-2">
+							<img class="icon icon-left icon-inset-1" src="{% static 'images/page1_icon03.png' %}" width="21" height="27" alt="">
+							<span class="inline-block">Read More</span>
+						</a>
+					</div>
+				</div>
+				<div class="row wow fadeInRight" data-wow-delay="0.3s">
+					<div class="col-xs-12">
+						<img class="border-radius" src="{% static 'images/page4_img05.jpg' %}" width="1170" height="400" alt="">
+					</div>
+					<div class="col-md-9 offset-9">
+						<h5>Successful Internet Radio Stations – How they get it right</h5>
+						<p>Have you ever wondered why some internet radio stations skyrocket, whilst others bumble along at the same old pace? What is it that attracts listeners to your station – your…</p>
+					</div>
+					<div class="col-md-3 offset-10 text-md-right">
+						<a href="#" class="btn btn-lg btn-primary btn-anis-type-2">
+							<img class="icon icon-left icon-inset-1" src="{% static 'images/page1_icon03.png' %}" width="21" height="27" alt="">
+							<span class="inline-block">Read More</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+	<!--========================================================
+                              FOOTER
+    ==========================================================-->
+	<footer class="page-footer text-center text-lg-left">
+		<section class="bg-texture-2 well-5">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4">
+
+						<!-- Brand -->
+						<a href="{% url 'home' %}" class="rd-navbar-brand box">
+							<div class="box__left">
+									<span class="brand-logo icon icon-sm icon-primary">
+										 <img src="{% static 'images/page1_icon01.png' %}" width="35" height="25" alt="">
+									</span>
+							</div>
+							<div class="box__body">
+								<div class="brand-name">Fairu<span class="text-color-primary">ze.</span></div>
+								<div class="brand-slogan">Radio station</div>
+							</div>
+						</a>
+						<!-- END Brand -->
+
+					</div>
+					<div class="col-lg-preffix-1 col-lg-4">
+						<address class="inset-9">
+							<a href="#" class="box">
+								<div class="box__left">
+									<img src="{% static 'images/page1_icon06.png' %}" width="31" height="38" alt="">
+								</div>
+								<div class="box__body text-left">
+									28 Jackson Blvd Ste 1020<br>
+									Chicago, IL 60604-2340
+								</div>
+							</a>
+						</address>
+					</div>
+					<div class="col-lg-3">
+						<p class="copyright">
+							<span class="text-color-primary">Fairuze. </span>&copy; <span id="copyright-year"></span> |
+							<a href='{% url 'policy' %}'>Privacy Policy</a>
+							<!-- FOOTER_LINK -->
+						</p>
+						<ul class="inline-list preffix-3">
+							<li><a href="#" class="icon-type-2 icon-sm icon-contrast fa-instagram"></a></li>
+							<li><a href="#" class="icon-type-2 icon-sm icon-contrast fa-twitter"></a></li>
+							<li><a href="#" class="icon-type-2 icon-sm icon-contrast fa-facebook"></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	</footer>
+</div>
+
+<!-- Core Scripts -->
+<script src="{% static 'js/core.min.js' %}"></script>
+<!-- Additional Functionality Scripts -->
+<script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>

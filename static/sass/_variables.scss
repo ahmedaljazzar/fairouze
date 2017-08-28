@@ -1,0 +1,64 @@
+//========================================================
+//                     Variables
+//=========================================================
+
+// Use relative measurements. Change to 0 on "Post Production"
+$debug: 0;
+
+// Layouts
+$layout-boxed-width: 1920px;
+$layout-boxed-bg: #444;
+
+
+// Resolutions
+$screen-xs-min: 480px;
+$screen-sm-min: 768px;
+$screen-md-min: 992px;
+$screen-lg-min: 1200px;
+$screen-xl-min: 1800px;
+
+
+// Fonts
+$default-font-family: 'Montserrat', sans-serif;
+$default-font-weight: 400;
+$default-font-size: 18px;
+$default-line-height: 33px;
+
+
+// Anchor Colors
+$default: #000;
+$contrast: #fff;
+$white: #fff;
+$primary: #04c4d9;
+
+$contrast-variant-1: darken(saturate(adjust_hue($contrast, 180), 3.03030303030302%), 6.470588235294116%);
+$contrast-variant-2: darken(saturate(adjust_hue($contrast, 240), 100%), 0.19607843137254122%);
+
+
+$primary-variant-1: lighten(saturate(adjust_hue($primary, -0.1223895094705938), 3.619909502262459%), 28.23529411764705%);
+
+// Relative Colors
+$grayscale-darkest-1: lighten(saturate(adjust_hue($default, 345), 6.060606060606066%), 12.941176470588237%);
+$grayscale-darkest: lighten(saturate(adjust_hue($default, 212.72727272727275), 9.401709401709397%), 22.941176470588236%);
+$grayscale-darken-variant-1: lighten(saturate(adjust_hue($default, 214.2857142857143), 9.459459459459456%), 29.01960784313725%);
+$grayscale-darken: lighten(saturate(adjust_hue($default, 215.99999999999997), 8.982035928143715%), 32.745098039215684%);
+$grayscale-default: lighten(saturate(adjust_hue($default, 215.2941176470588), 9.189189189189188%), 36.27450980392157%);
+$grayscale-lighten: lighten(saturate(adjust_hue($default, 214.73684210526312), 9.004739336492888%), 58.62745098039216%);
+$grayscale-lightest: lighten(saturate(adjust_hue($default, 215.45454545454538), 12.359550561797755%), 65.09803921568627%);
+$grayscale-lightest-variant-1: lighten(saturate(adjust_hue($default, 205.00000000000003), 9.677419354838717%), 75.68627450980392%);;
+
+
+$content-color: $grayscale-default;
+$content-bg: $contrast;
+
+// Round Corvers
+$border-radius-small: 4px;
+$border-radius-base: 5px;
+$border-radius-large: 8px;
+
+
+// Shadows
+$box-shadow-ambient: 0 0 0 rgba(0, 0, 0, .12);
+$box-shadow-key-small: 3px 4px 5px 0px rgba(0, 0, 0, 0.11);
+$box-shadow-key-light: 3px 4px 8px 0px rgba(0, 0, 0, 0.11);
+$box-shadow-key-light-large: 8px 14px 18px 0px rgba(0, 0, 0, 0.11);
