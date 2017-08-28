@@ -1,6 +1,14 @@
+# Project Files
+node_modules/
+bower_components/
+static/js/app.bundle.js
+
 # IDEs and machines files
 .idea/
 .DS_STORE
+
+# NPM
+package-lock.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -103,3 +111,4 @@ ENV/
 
 # mypy
 .mypy_cache/
+

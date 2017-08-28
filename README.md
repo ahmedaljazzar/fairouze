@@ -14,6 +14,7 @@ $ git clone git@github.com:ahmedaljazzar/fairuze.git
 $ cd fairuze
 $ mkvirtualenv fairuze -p python3 -r requirements.txt
 $ python manage.py migrate
+$ npm install
 ```
 
 ## Running server
@@ -24,7 +25,7 @@ $ python manage.py runserver
 ## License
 The code in this repository is licensed under version 3 of the AGPL unless otherwise noted. Please see the [LICENSE](https://github.com/ahmedaljazzar/fairuze/blob/master/LICENSE) file for details.
 
-Copyright (c) 2017 Ahmed Jazzar <me@ahmedjazzar.com>
+Copyright (c) 2017 Ahmed Jazzar <me@ahmedjazzar.com>, Radwan Abu-Odeh <radwanizzat@gmail.com>
 
 
 
@@ -46,6 +47,7 @@ $ git clone git@github.com:ahmedaljazzar/fairuze.git
 $ cd fairuze
 $ mkvirtualenv fairuze -p python3 -r requirements.txt
 $ python manage.py migrate
+$ npm install
 ```
 
 ## تشغيل الخادم
@@ -56,4 +58,4 @@ $ python manage.py runserver
 
 إن هذا النص المصدري محمي بموجب ترخيص رخصة أفيرو العمومية بإصدارها الثالث مالم يتم النص على غير ذلك بصراحة. رجاء زُر صفحة [الرخصة](https://github.com/ahmedaljazzar/fairuze/blob/master/LICENSE) للمزيد من المعلومات.‏
 
-٢٠١٧ أحمد جزار. جميع الحقوق محفوظة.‏ (c) 
+٢٠١٧ أحمد جزار ورضوان ابوعوده. جميع الحقوق محفوظة.‏ (c) 
