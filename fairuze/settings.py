@@ -49,6 +49,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -98,9 +99,12 @@ REST_FRAMEWORK = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'OPTIONS': {
-            'read_default_file': os.path.join(BASE_DIR, 'my.cnf'),
-        },
+        'NAME': os.environ.get('FAIRUZE_DB_NAME', 'fairuze'),
+        'USER': os.environ.get('FAIRUZE_DB_USER', 'root'),
+        'PASSWORD': os.environ.get('FAIRUZE_DB_PASSWORD', ''),
+        'HOST': os.environ.get('FAIRUZE_DB_HOST', ''),
+        'PORT': os.environ.get('FAIRUZE_DB_PORT', ''),
+        'OPTIONS': {'charset': 'utf8'},
     }
 }
 
@@ -144,7 +148,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]

@@ -9158,8 +9158,7 @@ html.lt-ie10 .row > [class*="col-lg-preffix-"] {
  */
 @font-face {
   font-family: "arrows";
-  src: url("../fonts/arrows.eot");
-  src: url("../fonts/arrows.eot#iefix") format("embedded-opentype"), url("../fonts/arrows.woff") format("woff"), url("../fonts/arrows.ttf") format("truetype"), url("../fonts/arrows.svg") format("svg");
+  src: url("../fonts/arrows.woff") format("woff"), url("../fonts/arrows.ttf") format("truetype"), url("../fonts/arrows.svg") format("svg");
   font-weight: normal;
   font-style: normal;
 }
