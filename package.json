@@ -30,22 +30,17 @@
   },
   "homepage": "https://github.com/ahmedaljazzar/fairuze#readme",
   "dependencies": {
+    "webpack": "^3.5.5",
+    "bower": "^1.8.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
-    "redux": "^3.7.2"
-  },
-  "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-eslint": "^7.2.3",
-    "babel-jest": "^20.0.3",
     "babel-loader": "^7.1.2",
+    "babel-core": "^6.26.0",
+    "babel-jest": "^20.0.3",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
-    "eslint": "^4.5.0",
-    "eslint-plugin-react": "^7.3.0",
-    "faker": "^4.1.0",
     "glob": "^7.1.2",
     "jest": "^20.0.4",
     "jest-cli": "^20.0.4",
@@ -53,9 +48,15 @@
     "opn": "^5.1.0",
     "opn-cli": "^3.1.0",
     "path": "^0.12.7",
+    "webpack-hot-middleware": "^2.18.2",
+    "redux": "^3.7.2"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "eslint": "^4.5.0",
+    "eslint-plugin-react": "^7.3.0",
+    "faker": "^4.1.0",
     "redux-devtools": "^3.4.0",
-    "webpack": "^3.5.5",
-    "webpack-dev-server": "^2.7.1",
-    "webpack-hot-middleware": "^2.18.2"
+    "webpack-dev-server": "^2.7.1"
   }
 }
