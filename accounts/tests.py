@@ -5,8 +5,7 @@ from rest_framework import status
 from rest_framework.authtoken.models import Token
 from rest_framework.test import APITestCase
 
-from accounts import views, factories
-from accounts.permissions import IsNotAuthenticated
+from accounts import factories
 
 
 class AccountsTest(APITestCase):

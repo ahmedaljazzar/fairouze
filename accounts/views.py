@@ -1,11 +1,15 @@
 from django.contrib.auth.models import User
-from rest_framework import mixins
+from rest_framework import mixins, viewsets
 from rest_framework.exceptions import PermissionDenied
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import GenericViewSet
 
+from accounts.models import NewsletterSubscription
 from accounts.permissions import IsNotAuthenticated
-from accounts.serializers import UserSerializer
+from accounts.serializers import (
+    UserSerializer,
+    NewsletterSubscriptionSerializer,
+)
 
 
 class AccountsViewSet(mixins.CreateModelMixin,
@@ -38,3 +42,8 @@ class AccountsViewSet(mixins.CreateModelMixin,
             return [IsNotAuthenticated(), ]
 
         return [IsAuthenticated(), ]
+
+
+class SubscriptionViewSet(viewsets.ModelViewSet):
+    queryset = NewsletterSubscription.objects.all()
+    serializer_class = NewsletterSubscriptionSerializer

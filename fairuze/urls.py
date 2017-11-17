@@ -33,6 +33,8 @@ router.register(r'tracks', songs_views.TrackViewSet)
 router.register(r'persons', songs_views.PersonViewSet)
 router.register(r'accounts', accounts_views.AccountsViewSet,
                 base_name='accounts')
+router.register(r'newsletters', accounts_views.SubscriptionViewSet,
+                base_name='newsletters')
 
 
 # URL Patterns

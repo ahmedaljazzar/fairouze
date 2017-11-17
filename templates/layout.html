@@ -235,11 +235,8 @@
                         <div class="col-md-preffix-1 col-md-6 col-lg-preffix-1 col-lg-6 no-margin">
                             <!-- RD Mailform -->
                             <form class='rd-mailform' method="post"
-                                  action="bat/rd-mailform.php">
-                                <!-- RD Mailform Type -->
-                                <input type="hidden" name="form-type"
-                                       value="subscribe"/>
-                                <!-- END RD Mailform Type -->
+                                  action="{% url "newsletters-list" %}">
+                                {% csrf_token %}
                                 <fieldset class="offset-3 preffix-2">
                                     <label data-add-placeholder
                                            class="label">

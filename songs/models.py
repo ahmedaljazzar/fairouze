@@ -45,6 +45,7 @@ class Lyric(models.Model):
     title = models.CharField(max_length=100)
     value = models.TextField()
     info = models.TextField(null=True, blank=True)
+    feature = models.BooleanField(default=False)
     track = models.ForeignKey(Track, null=True)
     creator = models.ForeignKey(User)
     artist = models.ForeignKey(Person, null=True, related_name='artist')

@@ -5,6 +5,8 @@ from rest_framework import serializers
 from rest_framework.authtoken.models import Token
 from rest_framework.validators import UniqueValidator
 
+from accounts.models import NewsletterSubscription
+
 
 class UserSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(
@@ -56,3 +58,9 @@ class UserSerializer(serializers.ModelSerializer):
             'date_joined',
             'last_login',
         )
+
+
+class NewsletterSubscriptionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = NewsletterSubscription
+        fields = ('first_name', 'last_name', 'email',)
