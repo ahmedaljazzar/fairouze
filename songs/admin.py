@@ -11,25 +11,10 @@ class TrackAdmin(admin.ModelAdmin):
     pass
 
 
-class SongAdmin(admin.ModelAdmin):
-    pass
-
-
-class ArtistAdmin(admin.ModelAdmin):
-    pass
-
-
-class ComposerAdmin(admin.ModelAdmin):
-    pass
-
-
-class WriterAdmin(admin.ModelAdmin):
+class PersonAdmin(admin.ModelAdmin):
     pass
 
 
 admin.site.register(models.Lyric, LyricAdmin)
 admin.site.register(models.Track, TrackAdmin)
-admin.site.register(models.Song, SongAdmin)
-admin.site.register(models.Artist, ArtistAdmin)
-admin.site.register(models.Composer, ComposerAdmin)
-admin.site.register(models.Writer, WriterAdmin)
+admin.site.register(models.Person, PersonAdmin)

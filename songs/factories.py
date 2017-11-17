@@ -5,46 +5,31 @@ from songs import models
 from accounts.factories import UserFactory
 
 
-class LyricFactory(factory.DjangoModelFactory):
-    creator = factory.SubFactory(UserFactory)
-
-    class Meta:
-        model = models.Lyric
-
-
 class TrackFactory(factory.DjangoModelFactory):
-    length = FuzzyFloat(10)
     url = factory.Faker('url')
+    length = FuzzyFloat(10)
+    type = 's'
 
     class Meta:
         model = models.Track
 
 
-class SongFactory(factory.DjangoModelFactory):
-    lyrics = factory.SubFactory(LyricFactory)
-    track = factory.SubFactory(TrackFactory)
+class PersonFactory(factory.DjangoModelFactory):
+    first_name = factory.Faker('first_name')
+    last_name = factory.Faker('last_name')
+
+    class Meta:
+        model = models.Person
+
+
+class LyricFactory(factory.DjangoModelFactory):
+    value = factory.Faker('sentence', nb_words=120)
     title = factory.Faker('sentence', nb_words=4)
+    track = factory.SubFactory(TrackFactory)
+    creator = factory.SubFactory(UserFactory)
+    artist = factory.SubFactory(PersonFactory)
+    composer = factory.SubFactory(PersonFactory)
+    writer = factory.SubFactory(PersonFactory)
 
     class Meta:
-        model = models.Song
-
-
-class ArtistFactory(factory.DjangoModelFactory):
-    name = factory.Faker('name')
-
-    class Meta:
-        model = models.Artist
-
-
-class ComposerFactory(factory.DjangoModelFactory):
-    name = factory.Faker('name')
-
-    class Meta:
-        model = models.Composer
-
-
-class WriterFactory(factory.DjangoModelFactory):
-    name = factory.Faker('name')
-
-    class Meta:
-        model = models.Writer
+        model = models.Lyric

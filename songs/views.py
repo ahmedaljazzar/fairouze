@@ -13,21 +13,6 @@ class TrackViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.TrackSerializer
 
 
-class SongViewSet(viewsets.ModelViewSet):
-    queryset = models.Song.objects.all()
-    serializer_class = serializers.SongSerializer
-
-
-class ArtistViewSet(viewsets.ModelViewSet):
-    queryset = models.Artist.objects.all()
-    serializer_class = serializers.ArtistSerializer
-
-
-class ComposerViewSet(viewsets.ModelViewSet):
-    queryset = models.Composer.objects.all()
-    serializer_class = serializers.ComposerSerializer
-
-
-class WriterViewSet(viewsets.ModelViewSet):
-    queryset = models.Writer.objects.all()
-    serializer_class = serializers.WriterSerializer
+class PersonViewSet(viewsets.ModelViewSet):
+    queryset = models.Person.objects.all()
+    serializer_class = serializers.PersonSerializer

@@ -30,11 +30,7 @@ from accounts import views as accounts_views
 router = routers.DefaultRouter()
 router.register(r'lyrics', songs_views.LyricViewSet)
 router.register(r'tracks', songs_views.TrackViewSet)
-router.register(r'songs', songs_views.SongViewSet)
-router.register(r'artists', songs_views.ArtistViewSet)
-router.register(r'composers', songs_views.ComposerViewSet)
-router.register(r'writers', songs_views.WriterViewSet)
-
+router.register(r'persons', songs_views.PersonViewSet)
 router.register(r'accounts', accounts_views.AccountsViewSet,
                 base_name='accounts')
 
@@ -43,7 +39,7 @@ router.register(r'accounts', accounts_views.AccountsViewSet,
 urlpatterns = [
 
     # This view should be removed.
-    url(r'^$', views.home_view, name='home'),
+    url(r'^$', views.HomeView.as_view(), name='home'),
     url(r'^djs/$', views.djs_and_shows_view, name='djs'),
     url(r'^events/$', views.events_view, name='events'),
     url(r'^news/$', views.news_view, name='news'),
@@ -60,3 +56,7 @@ urlpatterns = [
     # Documentations URLs
     url(r'^docs/api/', include_docs_urls(title='Fairuze API Guide')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

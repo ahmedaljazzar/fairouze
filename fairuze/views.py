@@ -3,10 +3,20 @@ These are temporary views that must be removed once the UI server is
 done.
 """
 from django.shortcuts import render
+from django.views.generic import TemplateView
+
+from songs.models import Lyric
 
 
-def home_view(request):
-    return render(request, 'index.html', {})
+class HomeView(TemplateView):
+    template_name = 'index.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(HomeView, self).get_context_data(**kwargs)
+
+        context['lyrics'] = Lyric.objects.all()
+
+        return context
 
 
 def djs_and_shows_view(request):

@@ -15,25 +15,7 @@ class TrackSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class SongSerializer(serializers.ModelSerializer):
+class PersonSerializer(serializers.ModelSerializer):
     class Meta:
-        model = models.Song
-        fields = '__all__'
-
-
-class ArtistSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = models.Artist
-        fields = '__all__'
-
-
-class ComposerSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = models.Composer
-        fields = '__all__'
-
-
-class WriterSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = models.Writer
+        model = models.Person
         fields = '__all__'
