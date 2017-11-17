@@ -158,44 +158,13 @@
                 <div class="col-lg-4">
                     <div class="row row-sm-middle flow-offset-3">
                         <div class="col-sm-6 col-lg-12">
-                            <h2>Music Chart</h2>
+                            <h2>Lyrics Chart</h2>
                             <ul class="marked-list">
-                                <li class="wow fadeInRight"
-                                    data-wow-delay="0.7s"><a
-                                        href="#">Amr Diab — Meaddy
-                                    El Nas</a></li>
-                                <li class="wow fadeInRight"
-                                    data-wow-delay="0.7s"><a
-                                        href="#">Nai Barghouti —
-                                    Roddani ela biladi</a></li>
-                                <li class="wow fadeInRight"
-                                    data-wow-delay="0.1s"><a
-                                        href="#">Joseph Attieh —
-                                    Hobb W Mkattar</a></li>
-                                <li class="wow fadeInRight"
-                                    data-wow-delay="0.3s"><a
-                                        href="#">Nancy Ajram —
-                                    Maakoul El Gharam</a></li>
-                                <li class="wow fadeInRight"
-                                    data-wow-delay="0.9s"><a
-                                        href="#">Yara — Ah Mennak Ya
-                                    Hawa</a></li>
-                                <li class="wow fadeInRight"
-                                    data-wow-delay="0.2s"><a
-                                        href="#">Ramy Ayach —
-                                    Bghanilha</a></li>
-                                <li class="wow fadeInRight"
-                                    data-wow-delay="0.4s"><a
-                                        href="#">Assi El Hallani —
-                                    Wani Mareq Mareet</a></li>
-                                <li class="wow fadeInRight"
-                                    data-wow-delay="0.5s"><a
-                                        href="#">Hadi Younes — Aam
-                                    Behlam Bi Rfika</a></li>
-                                <li class="wow fadeInRight"
-                                    data-wow-delay="0.6s"><a
-                                        href="#">Wael Kfoury — Mean
-                                    habebe ana</a></li>
+                                {% for lyric in top %}
+                                    <li class="wow fadeInRight"
+                                        data-wow-delay="0.{{ forloop.counter }}s"><a
+                                            href="#">{{ lyric.artist }} — {{ lyric.title }}</a></li>
+                                {% endfor %}
                             </ul>
                         </div>
                         <div class="col-sm-6 col-lg-12 text-sm-left">

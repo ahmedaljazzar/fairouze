@@ -19,6 +19,7 @@ class HomeView(TemplateView):
             .filter(feature=True)\
             .order_by('-created')
 
+        context['top'] = Lyric.objects.order_by('-up_votes')[:10]
 
         return context
 
