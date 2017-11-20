@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from django.contrib.auth.models import User
+from django.templatetags.static import static
 from django.utils.translation import ugettext_lazy as _
 
 
@@ -23,11 +24,24 @@ class Track(models.Model):
 class Person(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50, null=True, blank=True)
-    image = models.ImageField(upload_to='people', null=True, blank=True)
+    photo = models.ImageField(upload_to='people', null=True, blank=True)
+    cover_photo = models.ImageField(upload_to='people', null=True, blank=True)
     info = models.TextField(null=True, blank=True)
 
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
+
+    def photo_url(self):
+        if self.photo:
+            return self.photo.url
+
+        return static('images/unknown.png')
+
+    def cover_photo_url(self):
+        if self.cover_photo:
+            return self.cover_photo.url
+
+        return self.photo_url()
 
     @property
     def name(self):
@@ -42,7 +56,7 @@ class Person(models.Model):
 
 
 class Lyric(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(unique=True, max_length=100)
     value = models.TextField()
     info = models.TextField(null=True, blank=True)
     feature = models.BooleanField(default=False)

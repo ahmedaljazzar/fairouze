@@ -11,32 +11,37 @@
     <section class="rd-parallax text-color-contrast text-left">
         <div class="rd-parallax-layer" data-speed="0.3"
              data-type="media"
-             data-url="{% static 'images/page1_parallax01.jpg' %}"></div>
+             data-url="{{ top_song.artist.cover_photo_url }}"></div>
         <div class="well-2 rd-parallax-layer" data-speed="0"
              data-type="html" data-fade="false">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6">
                         <article class="event-post">
-                            <h5 class="text-color-primary">Upcoming
-                                Event</h5>
-                            <div class="big">Palestine<br><span
-                                    class="preffix-2 heading-1">
-                                Youth Orchestra</span></div>
+                            <h5 class="text-color-primary">Top Words</h5>
+                            <div class="big">
+                                {{ top_song.large_title }}
+                                <br>
+                                <span class="preffix-2 heading-1">
+                                    {% if top_song.small_title %}
+                                        {{ top_song.small_title }}
+                                    {% else %}
+                                        &#8203;
+                                    {% endif %}
+                                </span>
+                            </div>
                             <a href="#"
                                class="event-post__info box box-skin-1">
-                                <div class="box__left heading-2">
-                                    21/09
-                                </div>
+                                <div class="box__left heading-2">+{{ top_song.up_votes }}</div>
                                 <div class="post__data box__body">
-                                    <h5>
-                                        Hall of Music
-                                    </h5>
-                                    <address class="small">
-                                        Southern Theatre<br
-                                            class="sm-hidden lg-visible">
-                                        Jerash, Jordan
-                                    </address>
+                                    <h5>{{ top_song.artist.name }}</h5>
+                                    {% if top_song.writer %}
+                                        <address class="small">
+                                            Written by
+                                            <br class="sm-hidden lg-visible">
+                                            {{ top_song.writer.name }}
+                                        </address>
+                                    {% endif %}
                                 </div>
                             </a>
                         </article>
@@ -69,9 +74,8 @@
                     <div class="owl-item">
                         <a href="#"
                            class="event-post-2 bg-overlay inset-1">
-                            <img src="{{ lyric.artist.image.url }}"
-                                 width="512" height="518"
-                                 alt="{{ lyric.artist.name }} photo">
+                            <img src="{{ lyric.artist.photo_url }}"
+                                 alt="{{ lyric.artist.name }} photo"/>
                             <div class="heading-2">{{ lyric.artist.first_name }}
                                 <br>
                                 {% if lyric.artist.last_name %}
@@ -92,7 +96,7 @@
                                     </div>
                                 </div>
                                 <div class="box__right heading-5">
-                                    {{ lyric.created | naturalday }}
+                                    +{{ lyric.up_votes }}
                                 </div>
                             </div>
                         </a>
@@ -108,44 +112,15 @@
                 <div class="col-lg-8">
                     <h2 class="text-color-primary">Latest Lyrics</h2>
                     <div class="row flow-offset-1">
-                        <div class="col-sm-6">
-                            <img class="border-radius"
-                                 src="{% static 'images/page1_img10.jpg' %}"
-                                 width="270" height="270" alt="">
-                            <h6 class="text-color-primary">Music
-                                News</h6>
-                            <h5><a href="#">Carole UK Tour<br>
-                                is Happening!</a></h5>
-                        </div>
-                        <div class="col-sm-6">
-                            <img class="border-radius"
-                                 src="{% static 'images/page1_img11.jpg' %}"
-                                 width="270" height="270" alt="">
-                            <h6 class="text-color-primary">Music
-                                News</h6>
-                            <h5><a href="#">Cyrine Turn Chimps<br>
-                                in Her New Video.</a>
-                            </h5>
-                        </div>
-                        <div class="col-sm-6">
-                            <img class="border-radius"
-                                 src="{% static 'images/page1_img12.jpg' %}"
-                                 width="270" height="270" alt="">
-                            <h6 class="text-color-primary">Music
-                                News</h6>
-                            <h5><a href="#">Fares Karam is
-                                working<br>
-                                with Mark Ronson</a></h5>
-                        </div>
-                        <div class="col-sm-6">
-                            <img class="border-radius"
-                                 src="{% static 'images/page1_img13.jpg' %}"
-                                 width="270" height="270" alt="">
-                            <h6 class="text-color-primary">Music
-                                News</h6>
-                            <h5><a href="#">Rihanna announces<br>
-                                ANTI World Tour</a></h5>
-                        </div>
+                        {% for lyrics in latest %}
+                            <div class="col-sm-6">
+                                <img class="border-radius"
+                                     src="{{ lyrics.artist.photo_url }}"
+                                     width="270" height="270" alt="">
+                                <h6 class="text-color-primary">{{ lyrics.artist.name }}</h6>
+                                <h5><a href="#">{{ lyrics.title }}</a></h5>
+                            </div>
+                        {% endfor %}
                     </div>
                     <a href="{% url 'news' %}"
                        class="btn btn-lg btn-default btn-anis offset-2">
@@ -170,14 +145,13 @@
                         <div class="col-sm-6 col-lg-12 text-sm-left">
                             <a class="banner bg-texture-6" href="#">
                                 <div class="inset-2">
-                                    <h5>Listen to</h5>
+                                    <h5>Search</h5>
 
                                     <h2 class="text-color-contrast">
                                         Fairuze.
-                                        Live</h2>
+                                        Now</h2>
                                     <h5 class="text-color-primary-variant-1">
-                                        From Anywhere
-                                        with</h5>
+                                        For any rhythm you like</h5>
                                 </div>
                                 <div class="bg-color-grayscale-default">
                                     <div class="inset-3">
@@ -219,7 +193,7 @@
     <div class="rd-google-map">
         <div id="google-map" class="rd-google-map__model"></div>
         <ul class="rd-google-map__locations">
-            <li data-x="32.2767025" data-y="35.8870642">
+            <li data-x="31.905164" data-y="35.203479">
                 <div>
                     <div>Southern Theater, Jerash, Jordan.</div>
                     <div>+962 79 1122112</div>

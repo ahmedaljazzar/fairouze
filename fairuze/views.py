@@ -14,12 +14,14 @@ class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data(**kwargs)
 
-        context['latest'] = Lyric.objects.order_by('-created')[:5]
+        context['latest'] = Lyric.objects.order_by('-created')[:4]
         context['featured'] = Lyric.objects\
             .filter(feature=True)\
             .order_by('-created')
 
-        context['top'] = Lyric.objects.order_by('-up_votes')[:10]
+        top_songs = Lyric.objects.order_by('-up_votes')[:10]
+        context['top'] = top_songs
+        context['top_song'] = top_songs.first()
 
         return context
 
