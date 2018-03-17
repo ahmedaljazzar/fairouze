@@ -170,29 +170,32 @@
 
     <div class="container relative z-index-2">
       <div class="wrapper-1 text-center text-sm-left">
-        <div class="row row-no-gutter row-xs-middle row-sm-reverse">
-          <div
-              class="container searchform-container relative z-index-2">
-            <form class='rd-mailform rd-searchform'
-                  method="get"
-                  action="{% url "newsletters-list" %}">
-              <fieldset>
-                <label
-                    class="label">
-                  <input name="text"
+        <form class="row row-no-gutter row-xs-middle search-form"
+              action="{% url 'home' %}" method="get">
+            <div class="col-xs-8 col-sm-8 col-lg-9">
+              <div class="inset-4 search-field">
+                <label class="label">
+                  <input name="search"
                          placeholder="Search lyrics, songs, or artists"/>
                 </label>
-                <div class="mfControls btn-group absolute offset-9">
-                  <button
-                      class="btn btn-type-1 btn-md btn-secondary btn-anis-type-3 search-button"
-                      type="submit">
-                    Search
-                  </button>
+              </div>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-lg-3">
+              <div
+                  class="row row-sm-no-gutter row-sm-reverse flow-offset-5">
+                <div
+                    class="col-sm-12 text-center">
+                  <div class="inset-7">
+                    <button type="submit" class="btn_play item">
+                      Search<br>Now
+                      <span class="icon-type-2 icon-md icon-contrast fa-arrow-right">
+                      </span>
+                    </button>
+                  </div>
                 </div>
-              </fieldset>
-            </form>
-          </div>
-        </div>
+              </div>
+            </div>
+        </form>
       </div>
     </div>
   </header>
@@ -303,9 +306,7 @@
             <li>
               <a href="https://www.twitter.com/fairuzear"
                  target="_blank"
-                 class="icon-type-2 icon-sm icon-contrast fa-twitter class="
-                 icon-type-2 icon-sm icon-contrast
-                 fa-twitter"></a></li>
+                 class="icon-type-2 icon-sm icon-contrast fa-twitter"></a></li>
             <li>
               <a href="https://web.facebook.com/fairuzeAR/"
                  target="_blank"

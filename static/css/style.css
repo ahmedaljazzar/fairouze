@@ -16040,6 +16040,24 @@ html.boxed .rd-navbar--is-clone {
     font-size: 20px;
 }
 
+.search-form input {
+  color: white;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .search-field {
+    background-color: #545b65;
+    border-radius: 18px;
+    margin-right: 20px;
+  }
+}
+
+.search-form button span {
+  height: 100%;
+  display: block;
+}
+
 /*
 * MF Controls
 */
