@@ -1,8 +1,4 @@
-"""
-These are temporary views that must be removed once the UI server is
-done.
-"""
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, FormView
 
@@ -38,12 +34,39 @@ class ContactsView(FormView):
         return super(ContactsView, self).form_valid(form)
 
 
+class SearchView(TemplateView):
+    template_name = 'search.html'
+    
+    def get(self, request, *args, **kwargs):
+        if not self.request.GET.get('query'):
+            return redirect('home')
+        
+        return super(SearchView, self).get(
+            self, request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super(SearchView, self).get_context_data(**kwargs)
+        query = self.request.GET.get('query')
+        lyrics = Lyric.find_by_lyrics(query)
+        persons = Lyric.find_by_person(query)
+        tracks = Lyric.find_by_track(query)
+        found = lyrics.exists() or persons.exists() or tracks.exists()
+
+        context['query'] = query
+        context['lyrics'] = lyrics
+        context['persons'] = persons
+        context['tracks'] = tracks
+        context['results'] = found
+
+        return context
+
+
 def djs_and_shows_view(request):
     return render(request, 'index-1.html', {})
 
 
 def events_view(request):
-    return render(request, 'index-2.html', {})
+    return render(request, 'search.html', {})
 
 
 def news_view(request):

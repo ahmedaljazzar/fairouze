@@ -3,6 +3,7 @@ from django.contrib import admin
 from accounts import models
 
 
+# NOQA pylint: disable=unused-argument
 def resolve(modelAdmin, request, queryset):
     queryset.update(resolved=True)
 

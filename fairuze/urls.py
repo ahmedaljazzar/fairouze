@@ -48,6 +48,7 @@ urlpatterns = [
     url(r'^schedule/$', views.schedule_view, name='schedule'),
     url(r'^contacts/$', views.ContactsView.as_view(), name='contacts'),
     url(r'^policy/$', views.policy_view, name='policy'),
+    url(r'^search/$', views.SearchView.as_view(), name='search'),
 
     url(r'^admin/', admin.site.urls),
 

@@ -171,12 +171,13 @@
     <div class="container relative z-index-2">
       <div class="wrapper-1 text-center text-sm-left">
         <form class="row row-no-gutter row-xs-middle search-form"
-              action="{% url 'home' %}" method="get">
+              action="{% url 'search' %}" method="get">
             <div class="col-xs-8 col-sm-8 col-lg-9">
               <div class="inset-4 search-field">
                 <label class="label">
-                  <input name="search"
-                         placeholder="Search lyrics, songs, or artists"/>
+                  <input name="query" id="search-input"
+                         placeholder="Search lyrics, songs, or artists"
+                         value="{% if query %}{{ query }}{% endif %}"/>
                 </label>
               </div>
             </div>
@@ -186,7 +187,7 @@
                 <div
                     class="col-sm-12 text-center">
                   <div class="inset-7">
-                    <button type="submit" class="btn_play item">
+                    <button type="submit" class="btn_play item" id="search-button">
                       Search<br>Now
                       <span class="icon-type-2 icon-md icon-contrast fa-arrow-right">
                       </span>
@@ -323,5 +324,18 @@
 <script src="{% static 'js/core.min.js' %}"></script>
 <!-- Additional Functionality Scripts -->
 <script src="{% static 'js/script.js' %}"></script>
+<script>
+    $(document).ready(function () {
+        var searchButton = $('#search-button');
+        searchButton.attr('disabled', true);
+
+        $('#search-input').keyup(function () {
+            if ($(this).val().length != 0)
+                searchButton.attr('disabled', false);
+            else
+                searchButton.attr('disabled', true);
+        })
+    });
+</script>
 </body>
 </html>

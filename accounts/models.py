@@ -6,7 +6,14 @@ class NewsletterSubscription(models.Model):
     user = models.ForeignKey(User, null=True, editable=False)
     email = models.EmailField(unique=True)
 
+    # NOQA pylint: disable=arguments-differ
     def save(self, **kwargs):
+        """
+        - This is to inject the user object if the email has been
+          recognised, passing to None User if not.
+
+        - I disabled the arguments-differ as all arguments are kwargs
+        """
         try:
             self.user = User.objects.get(email=self.email)
         except User.DoesNotExist:

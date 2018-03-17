@@ -1,0 +1,198 @@
+﻿{% extends 'layout.html' %}
+
+{% load static %}
+
+{% block body %}
+  <section>
+    <!--Swiper -->
+    <div class="swiper-container swiper-slider" data-loop="true"
+         data-autoplay="false">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide rd-parallax">
+          <div class="rd-parallax-layer" data-speed="0.6"
+               data-type="media"
+               data-url="{% static 'images/page3_parallax01.jpg' %}"></div>
+          <div class="rd-parallax-layer" data-speed="0" data-type="html"
+               data-fade="false">
+            <div class="swiper-slide-caption">
+              <div class="container well-9 event-post">
+                <a href="#"
+                   class="event-post__info box box-skin-1 inline">
+                  <div class="box__left heading-2">21/09</div>
+                  <div class="post__data box__body">
+                    <h5>
+                      Moein Live In Concert
+                    </h5>
+                    <address class="small">
+                      9863 - 9867 Mill Road, Cambridge, MG09 99HT.
+                    </address>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide rd-parallax">
+          <div class="rd-parallax-layer" data-speed="0.6"
+               data-type="media"
+               data-url="{% static 'images/page3_parallax02.jpg' %}"></div>
+          <div class="rd-parallax-layer" data-speed="0" data-type="html"
+               data-fade="false">
+            <div class="swiper-slide-caption">
+              <div class="container well-9 event-post">
+                <a href="#"
+                   class="event-post__info box box-skin-1 inline">
+                  <div class="box__left heading-2">21/09</div>
+                  <div class="post__data box__body">
+                    <h5>
+                      Radio Javan New Year's Eve Gala 2016
+                    </h5>
+                    <address class="small">
+                      8901 Marmora Road, Glasgow, D04 89GR.
+                    </address>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide rd-parallax">
+          <div class="rd-parallax-layer" data-speed="0.6"
+               data-type="media"
+               data-url="{% static 'images/page3_parallax03.jpg' %}"></div>
+          <div class="rd-parallax-layer" data-speed="0" data-type="html"
+               data-fade="false">
+            <div class="swiper-slide-caption">
+              <div class="container well-9 event-post">
+                <a href="#"
+                   class="event-post__info box box-skin-1 inline">
+                  <div class="box__left heading-2">21/09</div>
+                  <div class="post__data box__body">
+                    <h5>
+                      Las Vegas Persian Concert
+                    </h5>
+                    <address class="small">
+                      9870 St Vincent Place, Glasgow, DC 45 Fr 45.
+                    </address>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Swiper Navigation -->
+      <div class="swiper-button-prev"><span
+          class="arrows-ico arrows-previous11"></span></div>
+      <div class="swiper-button-next"><span
+          class="arrows-ico arrows-next15"></span></div>
+    </div>
+    <!-- END Swiper -->
+  </section>
+  <section class="well-10">
+    <div class="container">
+      <h2 class="text-color-primary">Search Results</h2>
+      {% if not results %}
+        <h5>No results found for your search</h5>
+      {% else %}
+        <div class="row row-no-gutter">
+          <!-- Owl Carousel -->
+          <div class="owl-carousel"
+               data-autoplay="true"
+               data-autoplay-timeout="7000"
+               data-smart-speed="2000"
+               data-loop="true"
+               data-nav="false"
+               data-dots="false"
+               data-items="1"
+               data-sm-items="2"
+               data-md-items="3"
+               data-stage-padding="40"
+               data-md-stage-padding="0"
+               data-margin="27">
+
+            {% for lyric in lyrics %}
+              <div class="owl-item event-post-3">
+                <img class="border-radius"
+                     src="{{ lyric.artist.photo_url }}"
+                     width="370"
+                     height="370" alt="{{ lyric.artist.name }}'s photo">
+                <div class="event-post-3_info wow fadeInUp"
+                     data-wow-delay="0.3s">
+                  <h6 class="text-color-primary">{{ lyric.artist.name }}</h6>
+                  <h5>{{ lyric.title }}</h5>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <!-- END Owl Carousel -->
+        </div>
+        <div class="row row-no-gutter offset-8">
+          <!-- Owl Carousel -->
+          <div class="owl-carousel"
+               data-autoplay="true"
+               data-autoplay-timeout="10000"
+               data-smart-speed="2000"
+               data-loop="true"
+               data-nav="false"
+               data-dots="false"
+               data-items="1"
+               data-sm-items="2"
+               data-md-items="3"
+               data-stage-padding="40"
+               data-md-stage-padding="0"
+               data-margin="27">
+            {% for lyric in persons %}
+              <div class="owl-item event-post-3">
+                <img class="border-radius"
+                     src="{{ lyric.artist.photo_url }}"
+                     width="370"
+                     height="370" alt="{{ lyric.artist.name }}'s photo">
+                <div class="event-post-3_info wow fadeInUp"
+                     data-wow-delay="0.3s">
+                  <h6 class="text-color-primary">{{ lyric.artist.name }}</h6>
+                  <h5>{{ lyric.title }}</h5>
+                </div>
+              </div>
+            {% endfor %}
+
+          </div>
+          <!-- END Owl Carousel -->
+        </div>
+        <div class="row row-no-gutter offset-8">
+          <!-- Owl Carousel -->
+          <div class="owl-carousel"
+               data-autoplay="true"
+               data-autoplay-timeout="15000"
+               data-smart-speed="2000"
+               data-loop="true"
+               data-nav="false"
+               data-dots="false"
+               data-items="1"
+               data-sm-items="2"
+               data-md-items="3"
+               data-stage-padding="40"
+               data-md-stage-padding="0"
+               data-margin="27">
+            {% for lyric in tracks %}
+              <div class="owl-item event-post-3">
+                <img class="border-radius"
+                     src="{{ lyric.artist.photo_url }}"
+                     width="370"
+                     height="370" alt="{{ lyric.artist.name }}'s photo">
+                <div class="event-post-3_info wow fadeInUp"
+                     data-wow-delay="0.3s">
+                  <h6 class="text-color-primary">{{ lyric.artist.name }}</h6>
+                  <h5>{{ lyric.title }}</h5>
+                </div>
+              </div>
+            {% endfor %}
+
+          </div>
+          <!-- END Owl Carousel -->
+        </div>
+      {% endif %}
+    </div>
+  </section>
+{% endblock %}

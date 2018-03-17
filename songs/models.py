@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from django.contrib.auth.models import User
+from django.db.models import Q
 from django.templatetags.static import static
 from django.utils.translation import ugettext_lazy as _
 
@@ -87,3 +88,53 @@ class Lyric(models.Model):
 
     def __str__(self):
         return self.title
+
+    @classmethod
+    def find(cls, query):
+        return cls.objects.filter(
+            Q(title__icontains=query) |
+            Q(value__icontains=query) |
+            Q(info__icontains=query) |
+            Q(track__url__icontains=query) |
+            Q(creator__first_name__icontains=query) |
+            Q(creator__last_name__icontains=query) |
+            Q(artist__first_name__icontains=query) |
+            Q(artist__last_name__icontains=query) |
+            Q(artist__info__icontains=query) |
+            Q(writer__first_name__icontains=query) |
+            Q(writer__last_name__icontains=query) |
+            Q(writer__info__icontains=query) |
+            Q(composer__first_name__icontains=query) |
+            Q(composer__last_name__icontains=query) |
+            Q(composer__info__icontains=query)
+        ).distinct()
+
+    @classmethod
+    def find_by_lyrics(cls, query):
+        return cls.objects.filter(
+            Q(title__icontains=query) |
+            Q(value__icontains=query) |
+            Q(info__icontains=query)
+        ).distinct()
+
+    @classmethod
+    def find_by_track(cls, query):
+        return cls.objects.filter(
+            track__url__icontains=query
+        ).distinct()
+
+    @classmethod
+    def find_by_person(cls, query):
+        return cls.objects.filter(
+            Q(creator__first_name__icontains=query) |
+            Q(creator__last_name__icontains=query) |
+            Q(artist__first_name__icontains=query) |
+            Q(artist__last_name__icontains=query) |
+            Q(artist__info__icontains=query) |
+            Q(writer__first_name__icontains=query) |
+            Q(writer__last_name__icontains=query) |
+            Q(writer__info__icontains=query) |
+            Q(composer__first_name__icontains=query) |
+            Q(composer__last_name__icontains=query) |
+            Q(composer__info__icontains=query)
+        ).distinct()
