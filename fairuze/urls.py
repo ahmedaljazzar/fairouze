@@ -46,7 +46,7 @@ urlpatterns = [
     url(r'^events/$', views.events_view, name='events'),
     url(r'^news/$', views.news_view, name='news'),
     url(r'^schedule/$', views.schedule_view, name='schedule'),
-    url(r'^contacts/$', views.contacts_view, name='contacts'),
+    url(r'^contacts/$', views.ContactsView.as_view(), name='contacts'),
     url(r'^policy/$', views.policy_view, name='policy'),
 
     url(r'^admin/', admin.site.urls),
@@ -61,4 +61,5 @@ urlpatterns = [
 
 
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(
+        settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

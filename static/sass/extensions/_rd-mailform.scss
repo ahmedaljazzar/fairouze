@@ -116,6 +116,10 @@ $placeholder-opacity: 1;
     max-height: $textarea-height * 1.5;
   }
 
+  #id_message {
+    padding: 23px 30px 23px 30px;
+  }
+
   @media (min-width: $screen-sm-min) {
     margin-top: $input-offset-top;
   }

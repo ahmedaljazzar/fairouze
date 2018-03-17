@@ -63,4 +63,4 @@ class UserSerializer(serializers.ModelSerializer):
 class NewsletterSubscriptionSerializer(serializers.ModelSerializer):
     class Meta:
         model = NewsletterSubscription
-        fields = ('first_name', 'last_name', 'email',)
+        fields = ('user', 'email',)

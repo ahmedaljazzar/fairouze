@@ -14565,6 +14565,11 @@ dl dd {
   transition: 0.5s;
   z-index: -1;
 }
+.search-button {
+  background-color: white;
+  height: 75px;
+  color: #04adc0;
+}
 .btn-anis:before, .btn-anis-type-2:before, .btn-anis-type-3:before, .btn-anis-type-4:before, .btn-anis-type-5:before {
   left: -20px;
   -webkit-transform: translate(-50%, -50%);
@@ -14593,11 +14598,12 @@ dl dd {
   background: #545b65;
 }
 .btn-anis-type-3:before, .btn-anis-type-3:after {
-  background: #fff;
+  background: #04c4d9 !important;
+  color: white !important;
 }
 .btn-anis-type-3:hover {
-  color: #545b65;
-  background: #fff;
+  background: #04c4d9 !important;
+  color: white !important;
 }
 .btn-anis-type-4:before, .btn-anis-type-4:after {
   background: #434951;
@@ -15951,6 +15957,9 @@ html.boxed .rd-navbar--is-clone {
   background: #4c525b;
   border: 0;
   border-radius: 35px;
+}
+#id_message {
+  margin-top: 40px;
 }
 @media (min-width: 768px) {
   .rd-mailform label input, .rd-mailform label textarea {

@@ -1,0 +1,82 @@
+﻿{% extends "layout.html" %}
+{% load static %}
+
+{% block title %}Contacts | Fairuze{% endblock %}
+
+
+{% block body %}
+  <section class="well-6--inset-2 text-lg-left">
+    <div class="container">
+      <h2 class="text-color-primary line-height-variant-1">Contact
+        Information</h2>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="contact-info line-height-variant-1">
+            <div class="box">
+              <div class="box__left inset-1"><span
+                  class="material-icons-location_on icon-big"></span>
+              </div>
+              <div class="address box__body">
+                <a href="#">12 Irsal Street<br/>
+                  Ramallah, Palestine</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 col-sm-offset-2">
+          <div class="contact-info line-height-variant-1">
+            <div class="box">
+              <div class="box__left inset-1"><span
+                  class="material-design-screen44 icon-big"></span>
+              </div>
+              <div class="box__body">
+                <a href="https://www.fairuze.com"
+                   class="text-color-primary">www.fairuze.com</a><br/>
+                <span class="text-color-primary">
+                                  info [at] fairuze.com
+                                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="well-7--inset-1 text-lg-left bg-texture-4">
+    <div class="container">
+      <h2 class="text-color-primary">Feedback</h2>
+      <form class="rd-mailform" action="{% url 'contacts' %}"
+            method="post">{% csrf_token %}
+        <fieldset class="mfinfo-type-2">
+          <div class="row">
+            {% for field in form %}
+              <div
+                  class="{% if not forloop.last %}col-md-4{% else %}col-md-12{% endif %}">
+                <label data-add-placeholder>
+                  {% for error in field.errors %}
+                    <span class="mfValidation show error"
+                          data-index="0">{{ error | escape }}</span>
+                  {% endfor %}
+
+                  {{ field }}
+                </label>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="mfControls btn-group pull-md-left offset-1">
+            <button
+                class="btn font-small btn-lg-variant-3 btn-contrast btn-anis-type-4"
+                type="submit">
+              <img class="icon icon-left icon-inset-2"
+                   src="{% static 'images/page1_icon04.png' %}"
+                   width="25" height="26" alt="">
+              <span class="inline-block">Submit Comment</span>
+            </button>
+          </div>
+
+          <div class="mfInfo"></div>
+        </fieldset>
+      </form>
+    </div>
+  </section>
+{% endblock %}

@@ -3,13 +3,15 @@ These are temporary views that must be removed once the UI server is
 done.
 """
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.urls import reverse_lazy
+from django.views.generic import TemplateView, FormView
 
+from accounts import forms
 from songs.models import Lyric
 
 
 class HomeView(TemplateView):
-    template_name = 'index.html'
+    template_name = 'home.html'
 
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data(**kwargs)
@@ -26,6 +28,16 @@ class HomeView(TemplateView):
         return context
 
 
+class ContactsView(FormView):
+    form_class = forms.ContactRequestForm
+    template_name = 'contacts.html'
+    success_url = reverse_lazy('home')
+
+    def form_valid(self, form):
+        form.save(commit=True)
+        return super(ContactsView, self).form_valid(form)
+
+
 def djs_and_shows_view(request):
     return render(request, 'index-1.html', {})
 
@@ -40,10 +52,6 @@ def news_view(request):
 
 def schedule_view(request):
     return render(request, 'index-4.html', {})
-
-
-def contacts_view(request):
-    return render(request, 'index-5.html', {})
 
 
 def policy_view(request):
