@@ -63,13 +63,24 @@ class Lyric(models.Model):
     feature = models.BooleanField(default=False)
     up_votes = models.IntegerField(default=0)
     down_votes = models.IntegerField(default=0)
-    track = models.ForeignKey(Track, null=True)
-    creator = models.ForeignKey(User)
-    artist = models.ForeignKey(Person, null=True, related_name='artist')
+    track = models.ForeignKey(
+        Track, null=True, on_delete=models.CASCADE)
+    creator = models.ForeignKey(User, on_delete=models.CASCADE)
+    artist = models.ForeignKey(
+        Person,
+        null=True,
+        related_name='artist',
+        on_delete=models.CASCADE)
     writer = models.ForeignKey(
-        Person, blank=True, null=True, related_name='writer')
+        Person,
+        blank=True,
+        null=True, related_name='writer',
+        on_delete=models.CASCADE)
     composer = models.ForeignKey(
-        Person, null=True, blank=True, related_name='composer')
+        Person,
+        null=True,
+        blank=True, related_name='composer',
+        on_delete=models.CASCADE)
 
     language = models.CharField(
         max_length=2,

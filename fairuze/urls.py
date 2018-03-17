@@ -1,22 +1,22 @@
 """fairuze URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/1.11/topics/http/urls/
+    https://docs.djangoproject.com/en/2.0/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  url(r'^$', views.home, name='home')
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
 Class-based views
     1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  url(r'^$', Home.as_view(), name='home')
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
 Including another URLconf
-    1. Import the include() function: from django.conf.urls import url, include
-    2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.conf.urls import url, include
+from django.urls import path, include
 
 from rest_framework import routers
 from rest_framework.documentation import include_docs_urls
@@ -41,23 +41,23 @@ router.register(r'newsletters', accounts_views.SubscriptionViewSet,
 urlpatterns = [
 
     # This view should be removed.
-    url(r'^$', views.HomeView.as_view(), name='home'),
-    url(r'^djs/$', views.djs_and_shows_view, name='djs'),
-    url(r'^events/$', views.events_view, name='events'),
-    url(r'^news/$', views.news_view, name='news'),
-    url(r'^schedule/$', views.schedule_view, name='schedule'),
-    url(r'^contacts/$', views.ContactsView.as_view(), name='contacts'),
-    url(r'^policy/$', views.policy_view, name='policy'),
-    url(r'^search/$', views.SearchView.as_view(), name='search'),
+    path('', views.HomeView.as_view(), name='home'),
+    path('djs/', views.djs_and_shows_view, name='djs'),
+    path('events/', views.events_view, name='events'),
+    path('news/', views.news_view, name='news'),
+    path('schedule/', views.schedule_view, name='schedule'),
+    path('contacts/', views.ContactsView.as_view(), name='contacts'),
+    path('policy/', views.policy_view, name='policy'),
+    path('search/', views.SearchView.as_view(), name='search'),
 
-    url(r'^admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
 
     # API URLs
-    url(r'^api/', include('rest_framework.urls')),
-    url(r'^api/', include(router.urls)),
+    path('api/', include('rest_framework.urls')),
+    path('api/', include(router.urls)),
 
     # Documentations URLs
-    url(r'^docs/api/', include_docs_urls(title='Fairuze API Guide')),
+    path('docs/api/', include_docs_urls(title='Fairuze API Guide')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 

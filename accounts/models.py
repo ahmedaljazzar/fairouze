@@ -3,7 +3,8 @@ from django.db import models
 
 
 class NewsletterSubscription(models.Model):
-    user = models.ForeignKey(User, null=True, editable=False)
+    user = models.ForeignKey(
+        User, null=True, editable=False, on_delete=models.CASCADE)
     email = models.EmailField(unique=True)
 
     # NOQA pylint: disable=arguments-differ
