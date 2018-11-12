@@ -22,18 +22,11 @@ from rest_framework import routers
 from rest_framework.documentation import include_docs_urls
 
 from fairuze import views
-from songs import views as songs_views
 from accounts import views as accounts_views
 
 
 # API Routers
 router = routers.DefaultRouter()
-router.register(r'lyrics', songs_views.LyricViewSet)
-router.register(r'tracks', songs_views.TrackViewSet)
-router.register(r'songs', songs_views.SongViewSet)
-router.register(r'artists', songs_views.ArtistViewSet)
-router.register(r'composers', songs_views.ComposerViewSet)
-router.register(r'writers', songs_views.WriterViewSet)
 
 router.register(r'accounts', accounts_views.AccountsViewSet,
                 base_name='accounts')
