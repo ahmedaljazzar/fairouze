@@ -98,13 +98,8 @@ REST_FRAMEWORK = {
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get('FAIRUZE_DB_NAME', 'fairuze'),
-        'USER': os.environ.get('FAIRUZE_DB_USER', 'root'),
-        'PASSWORD': os.environ.get('FAIRUZE_DB_PASSWORD', ''),
-        'HOST': os.environ.get('FAIRUZE_DB_HOST', ''),
-        'PORT': os.environ.get('FAIRUZE_DB_PORT', ''),
-        'OPTIONS': {'charset': 'utf8'},
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'fairuze.sqlite3'),
     }
 }
 
